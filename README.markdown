@@ -23,4 +23,4 @@ every circumstance.
 
 [Source](https://github.com/ManfredKarrer/nucleo.io)
 
-[Download swc](https://github.com/ManfredKarrer/nucleo/blob/master/distribution/nucleo-1.0.0.swc)
+[Download swc](https://github.com/ManfredKarrer/nucleo.io/blob/master/distribution/nucleo-1.0.0.swc)
