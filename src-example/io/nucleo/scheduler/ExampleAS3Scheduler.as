@@ -1,5 +1,5 @@
 package io.nucleo.scheduler {
-    import io.nucleo.scheduler.tasks.*;
+    import io.nucleo.scheduler.tasks.boring_test.*;
 
     public class ExampleAS3Scheduler extends SequenceScheduler {
 

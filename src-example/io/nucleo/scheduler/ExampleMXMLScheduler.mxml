@@ -4,7 +4,7 @@
 <scheduler:SequenceScheduler
         xmlns:mx="http://www.adobe.com/2006/mxml"
         xmlns:scheduler="io.nucleo.scheduler.*"
-        xmlns:tasks="io.nucleo.scheduler.tasks.*"
+        xmlns:boring_test="io.nucleo.scheduler.tasks.boring_test.*"
         >
 
     <!-- The runnableElements array must be defined for the root node. -->
@@ -22,16 +22,16 @@
                      DependencyManagedAsyncExampleTask1.
                      Tasks without dependencies are executed in parallel.
                 -->
-                <tasks:DependencyManagedAsyncExampleTask1/>
-                <tasks:DependencyManagedAsyncExampleTask2/>
+                <boring_test:DependencyManagedAsyncExampleTask1/>
+                <boring_test:DependencyManagedAsyncExampleTask2/>
             </scheduler:DependencyManagedScheduler>
-			
-			<tasks:AsyncExampleTask1/>
+
+            <boring_test:AsyncExampleTask1/>
 
         </scheduler:SequenceScheduler>
 
         <!-- You can mix schedulers and tasks at the same level, they all are of type IRunnable. -->
-        <tasks:ExampleTask1/>
+        <boring_test:ExampleTask1/>
         <scheduler:SequenceScheduler>
 
             <!-- ParallelScheduler executes all tasks in once.
@@ -39,21 +39,21 @@
                 If there is no interdependency this is the fastest
                 execution model. -->
             <scheduler:ParallelScheduler>
-                <tasks:AsyncExampleTask1/>
-                <tasks:AsyncExampleTask2/>
+                <boring_test:AsyncExampleTask1/>
+                <boring_test:AsyncExampleTask2/>
                 <scheduler:SequenceScheduler>
-                    <tasks:AsyncExampleTask1/>
-                    <tasks:AsyncExampleTask2/>
+                    <boring_test:AsyncExampleTask1/>
+                    <boring_test:AsyncExampleTask2/>
                 </scheduler:SequenceScheduler>
             </scheduler:ParallelScheduler>
 
-            <tasks:ExampleTask1/>
+            <boring_test:ExampleTask1/>
             <scheduler:SequenceScheduler>
-                <tasks:AsyncExampleTask2/>
-                <tasks:AsyncExampleTask1/>
+                <boring_test:AsyncExampleTask2/>
+                <boring_test:AsyncExampleTask1/>
             </scheduler:SequenceScheduler>
 
-            <tasks:AsyncExampleTask1/>
+            <boring_test:AsyncExampleTask1/>
         </scheduler:SequenceScheduler>
     </scheduler:runnableElements>
 </scheduler:SequenceScheduler>

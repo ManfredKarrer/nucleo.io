@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+                creationComplete="application1_creationCompleteHandler(event)"
+                implements="io.nucleo.scheduler.runnables.IRunnableObserver">
+    <mx:Script>
+		<![CDATA[
+        import io.nucleo.scheduler.ExampleMXMLScheduler;
+        import io.nucleo.scheduler.PrepareMojitoScheduler;
+        import io.nucleo.scheduler.model.MojitoModel;
+        import io.nucleo.scheduler.runnables.RunnableFault;
+
+        import mx.events.FlexEvent;
+        import mx.logging.Log;
+        import mx.logging.targets.TraceTarget;
+
+        protected function application1_creationCompleteHandler(event:FlexEvent):void {
+            //Log.addTarget(new TraceTarget());
+
+			// recipe from: http://www.drinksmixer.com/drink582.html 
+			// no guarantee if its the best mojito ;-)
+			
+            var ice:Object = {ingredient: "ice",  state:"solid" }
+            var rum:Object = {ingredient: "rum",  quantity:"1.25 oz"  }
+            var mintLeaves:Object = {ingredient: "mint leaves" ,  quantity:"12" }
+            var sugar:Object = {ingredient: "sugar",  quantity:"1.25 oz"  };
+            var limeJuice:Object = {ingredient: "lime juice" ,  quantity:"0.5 oz" }
+            var sodaWater:Object = {ingredient: "sodaWater",  quantity:"2 oz"  }
+            var ingredients:Object = new MojitoModel(ice, rum, mintLeaves, sugar, limeJuice, sodaWater);
+
+            var prepareMojitoScheduler:PrepareMojitoScheduler = new PrepareMojitoScheduler();
+            prepareMojitoScheduler.setModel(ingredients);
+            //prepareMojitoScheduler.setLogger(Log.getLogger("testLogger"));
+            prepareMojitoScheduler.setObserver(this);
+            prepareMojitoScheduler.run();
+        }
+
+        public function onRunnableComplete():void {
+            trace("Mojito ready to serve");
+        }
+
+        public function onRunnableFault(runnableFault:RunnableFault):void {
+            trace("damn");
+        }
+        ]]>
+	</mx:Script>
+
+</mx:Application>

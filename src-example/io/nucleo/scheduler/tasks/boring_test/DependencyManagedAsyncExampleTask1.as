@@ -1,4 +1,5 @@
-package io.nucleo.scheduler.tasks {
+package io.nucleo.scheduler.tasks.boring_test {
+    import io.nucleo.scheduler.tasks.*;
 
     public class DependencyManagedAsyncExampleTask1 extends ADependencyManagedTask {
 

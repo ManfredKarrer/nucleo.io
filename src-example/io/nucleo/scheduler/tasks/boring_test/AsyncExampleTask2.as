@@ -1,9 +1,10 @@
-package io.nucleo.scheduler.tasks {
+package io.nucleo.scheduler.tasks.boring_test {
+    import io.nucleo.scheduler.tasks.*;
     import flash.utils.setTimeout;
 
-    public class AsyncExampleTask1 extends ATask {
+    public class AsyncExampleTask2 extends ATask {
 
-        public function AsyncExampleTask1() {
+        public function AsyncExampleTask2() {
         }
 
         override public function run():void {

@@ -1,4 +1,4 @@
-# nucleo.io - ActionScript /Flex Library
+# nucleo.io - ActionScript / Flex Library
 
 
 ## About:
