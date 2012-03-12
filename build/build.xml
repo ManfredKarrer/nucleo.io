@@ -1,0 +1,72 @@
+<project name="Build library swc" basedir="." default="compile_library">
+    <property file="build.properties"/>
+
+	<!-- set properties -->
+    <property name="project_title" value="Nucleo" />
+    <property name="project_dir" location="${basedir}/.." />
+    <property name="src_dir" location="${project_dir}/src" />
+    <property name="bin_dir" location="${project_dir}/bin" />
+    <property name="docs_dir" value="${project_dir}/docs" />
+    <property name="swc_file" value="${bin_dir}/nucleo-${version}.swc" />
+
+	<property name="distribution_dir" location="${project_dir}/distribution" />
+
+	<!-- setup flex sdk tasks -->
+	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
+
+	<target name="compile_library">
+        <echo>compile library</echo>
+
+        <delete dir="${bin_dir}" quiet="true" includeEmptyDirs="true"/>
+        <delete dir="${distribution_dir}" quiet="true" includeEmptyDirs="true"/>
+
+		<fileset id="source_files" dir="${src_dir}">
+			<include name="**/*.as" />
+			<include name="**/*.mxml" />
+		</fileset>
+
+		<!-- create a list of all the classes in the src dir -->
+		<pathconvert property="include_classes" pathsep=" " dirsep="." refid="source_files">
+			<compositemapper>
+				<chainedmapper>
+					<globmapper from="${src_dir}/*" to="*" handledirsep="true" />
+					<mapper type="package" from="*.as" to="*" />
+				</chainedmapper>
+				<chainedmapper>
+					<globmapper from="${src_dir}/*" to="*" handledirsep="true" />
+					<mapper type="package" from="*.mxml" to="*" />
+				</chainedmapper>
+			</compositemapper>
+		</pathconvert>
+
+		<!-- compile -->
+		<compc output="${swc_file}" include-classes="${include_classes}">
+			<source-path path-element="${src_dir}" />
+		</compc>
+
+		<!--  deploy to the distribution dir... -->
+		<copy file="${swc_file}" todir="${distribution_dir}" overwrite="true" />
+
+	</target>
+
+    <target name="asdoc" depends="compile_library" description="Create AS docs">
+        <echo>generate AS docs</echo>
+
+        <delete dir="${docs_dir}"   quiet="true" includeEmptyDirs="true"/>
+        <mkdir dir="${docs_dir}"/>
+        <tstamp>
+            <format property="docgen_time" pattern="MM/dd/yyyy hh:mm aa" unit="hour"/>
+        </tstamp>
+        <java jar="${FLEX_HOME}/lib/asdoc.jar" dir="${FLEX_HOME}/frameworks" fork="true" failonerror="true">
+            <!--<arg line="-external-library-path+=${libs.dir}"/>-->
+            <arg line="-doc-sources+=${src_dir}"/>
+            <arg line="-source-path+=${src_dir}"/>
+            <arg line="-output ${docs_dir}"/>
+            <arg value="-keep-xml=true"/>
+            <arg line="-window-title '${project_title} ${version}'"/>
+            <arg line="-main-title '${project_title} ${version}'"/>
+            <arg line="-footer '${project_title} - Documentation generated at: ${docgen_time}'"/>
+        </java>
+    </target>
+
+</project>

@@ -1,0 +1,23 @@
+# svn
+.svn
+
+# mac
+.DS_Store
+
+# Flexbuilder
+.actionScriptProperties
+.flexProperties
+.flexLibProperties
+.project
+.settings
+
+# IntelliJ
+*.iml
+
+# dirs
+bin/*
+bin-debug/*
+bin-release/*
+bin-test/*
+docs/*
+report/*

@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+
+<!-- The root node is typically SequenceScheduler, but could be any other as well. -->
+<scheduler:SequenceScheduler
+        xmlns:mx="http://www.adobe.com/2006/mxml"
+        xmlns:scheduler="io.nucleo.scheduler.*"
+        xmlns:tasks="io.nucleo.scheduler.tasks.*"
+        >
+
+    <!-- The runnableElements array must be defined for the root node. -->
+    <scheduler:runnableElements>
+
+        <!-- You can nest schedulers or tasks in any order and depth. -->
+        <scheduler:SequenceScheduler>
+            <!-- DependencyManagedScheduler is resolving the dependency of read and write access to properties
+                automatically. So internally it is executing in sequence or parallel, depending on the current
+                dependency. As soon as a read dependency of a task is available (written by some other task), it can be
+                executed.-->
+            <scheduler:DependencyManagedScheduler>
+                <!-- DependencyManagedAsyncExampleTask1 use a property written by DependencyManagedAsyncExampleTask2
+                     so the sequence is automatically resolved and DependencyManagedAsyncExampleTask2 is executed before
+                     DependencyManagedAsyncExampleTask1.
+                     Tasks without dependencies are executed in parallel.
+                -->
+                <tasks:DependencyManagedAsyncExampleTask1/>
+                <tasks:DependencyManagedAsyncExampleTask2/>
+            </scheduler:DependencyManagedScheduler>
+			
+			<tasks:AsyncExampleTask1/>
+
+        </scheduler:SequenceScheduler>
+
+        <!-- You can mix schedulers and tasks at the same level, they all are of type IRunnable. -->
+        <tasks:ExampleTask1/>
+        <scheduler:SequenceScheduler>
+
+            <!-- ParallelScheduler executes all tasks in once.
+                If all children are completed the ParallelScheduler is also completed.
+                If there is no interdependency this is the fastest
+                execution model. -->
+            <scheduler:ParallelScheduler>
+                <tasks:AsyncExampleTask1/>
+                <tasks:AsyncExampleTask2/>
+                <scheduler:SequenceScheduler>
+                    <tasks:AsyncExampleTask1/>
+                    <tasks:AsyncExampleTask2/>
+                </scheduler:SequenceScheduler>
+            </scheduler:ParallelScheduler>
+
+            <tasks:ExampleTask1/>
+            <scheduler:SequenceScheduler>
+                <tasks:AsyncExampleTask2/>
+                <tasks:AsyncExampleTask1/>
+            </scheduler:SequenceScheduler>
+
+            <tasks:AsyncExampleTask1/>
+        </scheduler:SequenceScheduler>
+    </scheduler:runnableElements>
+</scheduler:SequenceScheduler>

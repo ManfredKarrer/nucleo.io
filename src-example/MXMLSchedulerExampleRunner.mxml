@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+                creationComplete="application1_creationCompleteHandler(event)"
+                implements="io.nucleo.scheduler.runnables.IRunnableObserver">
+    <mx:Script>
+		<![CDATA[
+        import io.nucleo.scheduler.ExampleMXMLScheduler;
+        import io.nucleo.scheduler.model.ExamplePropertyProviderModel;
+        import io.nucleo.scheduler.runnables.RunnableFault;
+
+        import mx.events.FlexEvent;
+        import mx.logging.Log;
+        import mx.logging.targets.TraceTarget;
+
+	    // For more information see: http://nucleo.io/
+        protected function application1_creationCompleteHandler(event:FlexEvent):void {
+            // we use the flex ILogger
+            Log.addTarget(new TraceTarget());
+
+            // prepare a shared model for reading and writing data in different tasks
+            // if no DependencyManagedSchedulers are used a simple model without any
+            // preconditions can be used (of type Object).
+            var flashVars:Object = {userName:"osama"};
+            var model:Object = new ExamplePropertyProviderModel(flashVars);
+            // we use a MXML scheduler for better readability of the scheduling config
+            var exampleScheduler:ExampleMXMLScheduler = new ExampleMXMLScheduler();
+
+            // set teh model, all task and nested schedulers will share this model (optional)
+            exampleScheduler.setModel(model);
+
+            // set the logger (optional)
+            exampleScheduler.setLogger(Log.getLogger("testLogger"), false);
+            // if you want logs also from the schedulers
+            //exampleScheduler.setLogger(logger, false);
+
+            // add a IRunnableObserver instance to get a complete and fault callback
+            exampleScheduler.setObserver(this);
+
+            // start it...
+            exampleScheduler.run();
+        }
+
+        public function onRunnableComplete():void {
+            trace("ExampleScheduler completed");
+        }
+
+        public function onRunnableFault(runnableFault:RunnableFault):void {
+            trace("ExampleScheduler failed");
+        }
+        ]]>
+	</mx:Script>
+
+</mx:Application>
