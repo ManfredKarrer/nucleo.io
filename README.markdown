@@ -6,7 +6,7 @@
 nucleo.io is an ActionScript /Flex Library containing a scheduler micro-framework for easily configuring tasks to be
 executed in sequence, parallel or based on their data dependencies.
 
-More can be found at the nucleo.io [blog](http://nucleo.io)
+More can be found at the [nucleo.io blog](http://nucleo.io)
 
 
 ## License:
@@ -23,4 +23,4 @@ every circumstance.
 
 [Source](https://github.com/ManfredKarrer/nucleo.io)
 
-[Download swc](https://github.com/ManfredKarrer/nucleo.io/blob/master/distribution/nucleo-1.0.0.swc)
+[Download swc](https://github.com/ManfredKarrer/nucleo.io/tree/master/distribution/nucleo-1.0.0.swc)
