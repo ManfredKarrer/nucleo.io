@@ -52,7 +52,7 @@ package io.nucleo.scheduler.model {
         }
 
         /**
-         * @inheritDoc
+         * @private
          */
         public function areAllDependenciesAvailable(readDependencyKeys:Array):Boolean {
             for (var i:int = 0; i < readDependencyKeys.length; i++) {
@@ -83,22 +83,29 @@ package io.nucleo.scheduler.model {
             //registerKey("channel");
         }
 
-        final protected function registerObject(key:Object,
-                                                value:Object):void {
-            data[key] = value;
-            registerKey(key);
-        }
-
-        final protected function registerKey(key:Object):void {
-            registeredPropertiesMap[key] = true;
-        }
-
         /**
          * The handling of a missing key registration can be overwritten if another handling is preferred.
          * @param key
          */
         protected function handleMissingPropertyRegistrationWarning(key:Object):void {
             throw new Error("Registration for key " + key + " missing!");
+        }
+
+        /**
+         * @param key
+         * @param value
+         */
+        final protected function registerObject(key:Object,
+                                                value:Object):void {
+            data[key] = value;
+            registerKey(key);
+        }
+
+        /**
+         * @param key
+         */
+        final protected function registerKey(key:Object):void {
+            registeredPropertiesMap[key] = true;
         }
 
 

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_nucleo_io" default="compile.module.nucleo_io">
+  <dirname property="module.nucleo_io.basedir" file="${ant.file.module_nucleo_io}"/>
+
+  <property name="module.jdk.home.nucleo_io" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.nucleo_io" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.nucleo_io" value="${project.jdk.classpath}"/>
+
+  <property name="compiler.args.nucleo_io" value="${compiler.args}"/>
+
+  <property name="nucleo_io.output.dir" value="${module.nucleo_io.basedir}/bin-debug"/>
+  <property name="nucleo_io.testoutput.dir" value="${module.nucleo_io.basedir}/bin-debug"/>
+
+  <path id="nucleo_io.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+
+  <path id="nucleo_io.module.production.classpath">
+    <path refid="${module.jdk.classpath.nucleo_io}"/>
+    <fileset dir="${basedir}/nucleo_io/libs">
+      <patternset refid="library.patterns"/>
+    </fileset>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/datavisualization.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/flex.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/framework.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/player/10/playerglobal.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/rpc.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/utilities.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/locale/en_US/airframework_rb.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/locale/en_US/datavisualization_rb.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/locale/en_US/framework_rb.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/locale/en_US/rpc_rb.swc"/>
+  </path>
+
+  <path id="nucleo_io.runtime.production.module.classpath">
+    <pathelement location="${nucleo_io.output.dir}"/>
+    <fileset dir="${basedir}/nucleo_io/libs">
+      <patternset refid="library.patterns"/>
+    </fileset>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/datavisualization.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/flex.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/framework.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/player/10/playerglobal.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/rpc.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/utilities.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/locale/en_US/airframework_rb.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/locale/en_US/datavisualization_rb.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/locale/en_US/framework_rb.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/locale/en_US/rpc_rb.swc"/>
+  </path>
+
+  <path id="nucleo_io.module.classpath">
+    <path refid="${module.jdk.classpath.nucleo_io}"/>
+    <pathelement location="${nucleo_io.output.dir}"/>
+    <fileset dir="${basedir}/nucleo_io/libs">
+      <patternset refid="library.patterns"/>
+    </fileset>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/datavisualization.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/flex.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/framework.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/player/10/playerglobal.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/rpc.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/utilities.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/locale/en_US/airframework_rb.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/locale/en_US/datavisualization_rb.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/locale/en_US/framework_rb.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/locale/en_US/rpc_rb.swc"/>
+  </path>
+
+  <path id="nucleo_io.runtime.module.classpath">
+    <pathelement location="${nucleo_io.output.dir}"/>
+    <fileset dir="${basedir}/nucleo_io/libs">
+      <patternset refid="library.patterns"/>
+    </fileset>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/datavisualization.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/flex.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/framework.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/player/10/playerglobal.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/rpc.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/libs/utilities.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/locale/en_US/airframework_rb.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/locale/en_US/datavisualization_rb.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/locale/en_US/framework_rb.swc"/>
+    <pathelement location="${basedir}/../WS_CMC_FB4/SDK/flex_sdk_3.5.0.12683B/frameworks/locale/en_US/rpc_rb.swc"/>
+  </path>
+
+
+  <patternset id="excluded.from.module.nucleo_io">
+    <patternset refid="ignored.files"/>
+  </patternset>
+
+  <patternset id="excluded.from.compilation.nucleo_io">
+    <patternset refid="excluded.from.module.nucleo_io"/>
+  </patternset>
+
+  <path id="nucleo_io.module.sourcepath">
+    <dirset dir="${module.nucleo_io.basedir}">
+      <include name="src"/>
+      <include name="src-example"/>
+      <include name="src-test"/>
+      <include name="src-generated"/>
+    </dirset>
+  </path>
+
+
+  <target name="compile.module.nucleo_io" depends="compile.module.nucleo_io.production,compile.module.nucleo_io.tests" description="Compile module nucleo_io"/>
+
+  <target name="compile.module.nucleo_io.production" description="Compile module nucleo_io; production classes">
+    <mkdir dir="${nucleo_io.output.dir}"/>
+      <echo message="${nucleo_io.output.dir}"/>
+
+    <javac destdir="${nucleo_io.output.dir}" debug="${compiler.debug}"
+           nowarn="${compiler.generate.no.warnings}"
+           memorymaximumsize="${compiler.max.memory}"
+           fork="true" executable="${module.jdk.bin.nucleo_io}/javac">
+      <compilerarg line="${compiler.args.nucleo_io}"/>
+      <bootclasspath refid="nucleo_io.module.bootclasspath"/>
+      <classpath refid="nucleo_io.module.production.classpath"/>
+      <src refid="nucleo_io.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.nucleo_io"/>
+    </javac>
+
+    <copy todir="${nucleo_io.output.dir}">
+      <fileset dir="${module.nucleo_io.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.nucleo_io.basedir}/src-example">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.nucleo_io.basedir}/src-test">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.nucleo_io.basedir}/src-generated">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+
+      <echo message="${nucleo_io.output.dir}"/>
+      <echo message="${module.nucleo_io.basedir}"/>
+
+  </target>
+
+  <target name="compile.module.nucleo_io.tests" depends="compile.module.nucleo_io.production" description="compile module nucleo_io; test classes" unless="skip.tests"/>
+
+  <target name="clean.module.nucleo_io" description="cleanup module">
+    <delete dir="${nucleo_io.output.dir}"/>
+    <delete dir="${nucleo_io.testoutput.dir}"/>
+  </target>
+</project>

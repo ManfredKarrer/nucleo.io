@@ -64,7 +64,7 @@ package io.nucleo.scheduler.runnables {
         // -------------------------------------------------------------------
 
         /**
-         * Should be used by sub classes for cleanup.
+         * To be used by sub classes for cleanup.
          */
         protected function destroy():void {
             throw new AbstractMethodInvocationError(this, "destroy");

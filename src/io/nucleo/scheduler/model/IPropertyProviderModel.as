@@ -25,10 +25,7 @@ package io.nucleo.scheduler.model {
 
 
         /**
-         *
-         * @param readDependencyKeys    The array of keys for dependent model data objects needed for a certain task
-         *                              to be able to run.
-         * @return                      True if all the data objects are already written and available.
+         * @private
          */
         function areAllDependenciesAvailable(readDependencyKeys:Array):Boolean;
     }

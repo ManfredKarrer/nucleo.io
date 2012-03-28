@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="creationCompleteHandler(event)">
+    <mx:Script><![CDATA[
+        import io.nucleo.inject.IInjector;
+        import io.nucleo.inject.createInjector;
+        import io.nucleo.inject.mojito.MojitoConfig;
+        import io.nucleo.inject.mojito.domain.Client;
+
+        import mx.events.FlexEvent;
+        import mx.resources.ResourceManager;
+
+        private var injector:IInjector; 
+
+        private function creationCompleteHandler(event:FlexEvent):void {
+            // first we need our config. That is the place where our injection mappings are defined.
+            var config:MojitoConfig = new MojitoConfig();
+
+            // createInjector is a package level function used for convenience to get the injector
+            injector = createInjector(config);
+
+            // we take the root object out of the injector. The other objects will be injected just in time when they
+            // are used and needed.
+            var touristInBarcelona:Client = injector.getObject(Client);
+
+            // lets get a mojito ;-)
+            touristInBarcelona.orderMojito();
+        }
+        ]]></mx:Script>
+</mx:Application>

@@ -1,30 +1,30 @@
 <?xml version="1.0"?>
 <scheduler:SequenceScheduler
-        xmlns:mx="http://www.adobe.com/2006/mxml"
-        xmlns:scheduler="io.nucleo.scheduler.*"
-        xmlns:mojito="io.nucleo.scheduler.tasks.mojito.*"
+xmlns:mx="http://www.adobe.com/2006/mxml"
+xmlns:scheduler="io.nucleo.scheduler.*"
+xmlns:mojito="io.nucleo.scheduler.tasks.mojito.*"
         >
-    <scheduler:runnableElements>
+<scheduler:runnableElements>
 
-        <!-- we know it does not matter to prepare the mint first or prepare the ice first... -->
-        <scheduler:ParallelScheduler>
-            <mojito:PlaceMintLeavesInBottomOfGlass/>
-            <scheduler:DependencyManagedScheduler>
-                <!-- just an example for 2 tasks where one is dependent on the others result -->
-                <mojito:PrePareCrushedIce/>
-                <mojito:AddCrushedIce/>
-            </scheduler:DependencyManagedScheduler>
-        </scheduler:ParallelScheduler>
+    <!-- we know it does not matter to prepare the mint first or prepare the ice first... -->
+    <scheduler:ParallelScheduler>
+        <mojito:PlaceMintLeavesInBottomOfGlass/>
+        <scheduler:DependencyManagedScheduler>
+            <!-- just an example for 2 tasks where one is dependent on the others result -->
+            <mojito:PrePareCrushedIce/>
+            <mojito:AddCrushedIce/>
+        </scheduler:DependencyManagedScheduler>
+    </scheduler:ParallelScheduler>
 
-        <!-- we know for sure the fixed order of these tasks -->
-        <scheduler:SequenceScheduler>
-            <mojito:AddRum/>
-            <mojito:AddSugar/>
-            <mojito:AddLimeJuice/>
-            <mojito:Muddle/>
-            <mojito:AddSodaWater/>
-            <mojito:GarnishWithMintLeaves/>
-        </scheduler:SequenceScheduler>
+    <!-- we know for sure the fixed order of these tasks -->
+    <scheduler:SequenceScheduler>
+        <mojito:AddRum/>
+        <mojito:AddSugar/>
+        <mojito:AddLimeJuice/>
+        <mojito:Muddle/>
+        <mojito:AddSodaWater/>
+        <mojito:GarnishWithMintLeaves/>
+    </scheduler:SequenceScheduler>
 
-    </scheduler:runnableElements>
+</scheduler:runnableElements>
 </scheduler:SequenceScheduler>

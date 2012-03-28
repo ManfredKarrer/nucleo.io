@@ -3,8 +3,15 @@
 
 ## About:
 
-nucleo.io is an ActionScript /Flex Library containing a scheduler micro-framework for easily configuring tasks to be
+nucleo.io is an ActionScript /Flex Library:
+
+The scheduler micro-framework can be used for easily configuring tasks to be
 executed in sequence, parallel or based on their data dependencies.
+
+The Dependency Injection framework use a code generation solution to provide DI without using reflection.
+It is based on the [the as3-commons-jasblocks project](https://github.com/teotigraphix/as3-commons-jasblocks)
+which is based on [antlr](http://www.antlr.org/):
+It is currently in an experimental state and needs some more work to get bulletproof.
 
 More can be found at the [nucleo.io blog](http://nucleo.io)
 
