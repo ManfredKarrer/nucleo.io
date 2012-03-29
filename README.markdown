@@ -12,7 +12,8 @@ executed in sequence, parallel or based on their data dependencies.
 ### Dependency Injection framework:
 The Dependency Injection framework use a code generation solution to provide DI without using reflection.
 It is based on the [as3-commons-jasblocks](https://github.com/teotigraphix/as3-commons-jasblocks) project
-which is based on [antlr](http://www.antlr.org/):
+which is based on [antlr](http://www.antlr.org/).
+
 The code generation is currently in an experimental state and needs some more work to get bulletproof.
 
 More can be found at the [nucleo.io blog](http://nucleo.io)
@@ -32,4 +33,4 @@ every circumstance.
 
 [Source](https://github.com/ManfredKarrer/nucleo.io)
 
-[Download swc](https://github.com/ManfredKarrer/nucleo.io/tree/master/distribution/nucleo-1.0.0.swc)
+[Download swc](https://github.com/ManfredKarrer/nucleo.io/tree/master/distribution/nucleo-1.1.0-beta.swc)
