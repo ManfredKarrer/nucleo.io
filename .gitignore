@@ -20,5 +20,6 @@ bin/*
 bin-debug/*
 bin-release/*
 bin-test/*
+docs/*
 report/*
 
