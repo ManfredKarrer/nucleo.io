@@ -1,0 +1,805 @@
+<asdoc>
+
+<interfaceRec name='IPropertyProviderModel' fullname='io.nucleo.scheduler.model:IPropertyProviderModel' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/scheduler/model/IPropertyProviderModel.as' namespace='io.nucleo.scheduler.model' access='public' baseClasses='Object' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+     The base interface for all models using the dependency management with the read/write methods.
+     ]]></description>
+</interfaceRec>
+<method name='areAllDependenciesAvailable' fullname='io.nucleo.scheduler.model:IPropertyProviderModel/io.nucleo.scheduler.model:IPropertyProviderModel:areAllDependenciesAvailable' isStatic='false' isFinal='false' isOverride='false'  param_names='readDependencyKeys' param_types='Array' param_defaults='undefined' result_type='Boolean'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='read' fullname='io.nucleo.scheduler.model:IPropertyProviderModel/io.nucleo.scheduler.model:IPropertyProviderModel:read' isStatic='false' isFinal='false' isOverride='false'  param_names='key' param_types='Object' param_defaults='undefined' result_type='*'>
+<description><![CDATA[
+         This method is used to define the read dependencies (the model data objects needed for a certain
+         task to be able to run)
+                  ]]></description>
+<param><![CDATA[key       The key which was used for writing an object to the data dictionary.
+         ]]></param>
+<return><![CDATA[         The value object stored with the associated key.
+         ]]></return>
+</method>
+<method name='write' fullname='io.nucleo.scheduler.model:IPropertyProviderModel/io.nucleo.scheduler.model:IPropertyProviderModel:write' isStatic='false' isFinal='false' isOverride='false'  param_names='key;value' param_types='Object;Object' param_defaults='undefined;undefined' result_type='void'>
+<description><![CDATA[
+                  ]]></description>
+<param><![CDATA[key       The key to be used for the given value. Can be of any type. Typically an interface, class
+                          or string.
+         ]]></param>
+<param><![CDATA[value     The value to be stored.
+         ]]></param>
+</method>
+<classRec name='PropertyProviderModel' fullname='io.nucleo.scheduler.model:PropertyProviderModel' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/scheduler/model/PropertyProviderModel.as' namespace='io.nucleo.scheduler.model' access='public' baseclass='Object' interfaces='io.nucleo.scheduler.model:IPropertyProviderModel' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+     The data model to store objects needed to be shared between tasks and the client.
+     It is using a style inspired by dependency injection frameworks like Google Guice.
+     You can use an Interface, Class or a string as key for reading or writing an object.
+     ]]></description>
+</classRec>
+<method name='PropertyProviderModel' fullname='io.nucleo.scheduler.model:PropertyProviderModel/PropertyProviderModel' isStatic='false' isFinal='false' isOverride='false'  result_type='*'>
+</method>
+<method name='areAllDependenciesAvailable' fullname='io.nucleo.scheduler.model:PropertyProviderModel/areAllDependenciesAvailable' isStatic='false' isFinal='false' isOverride='false'  param_names='readDependencyKeys' param_types='Array' param_defaults='undefined' result_type='Boolean'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='handleMissingPropertyRegistrationWarning' fullname='io.nucleo.scheduler.model:PropertyProviderModel/protected:handleMissingPropertyRegistrationWarning' isStatic='false' isFinal='false' isOverride='false'  param_names='key' param_types='Object' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+         The handling of a missing key registration can be overwritten if another handling is preferred.
+         ]]></description>
+<param><![CDATA[key
+         ]]></param>
+</method>
+<method name='read' fullname='io.nucleo.scheduler.model:PropertyProviderModel/read' isStatic='false' isFinal='false' isOverride='false'  param_names='key' param_types='Object' param_defaults='undefined' result_type='*'>
+<description><![CDATA[
+         
+         This method is used to define the read dependencies (the model data objects needed for a certain
+         task to be able to run)
+                  ]]></description>
+<param><![CDATA[key       The key which was used for writing an object to the data dictionary.
+         ]]></param>
+<return><![CDATA[         The value object stored with the associated key.
+         ]]></return>
+</method>
+<method name='registerKey' fullname='io.nucleo.scheduler.model:PropertyProviderModel/protected:registerKey' isStatic='false' isFinal='true' isOverride='false'  param_names='key' param_types='Object' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+         ]]></description>
+<param><![CDATA[key
+         ]]></param>
+</method>
+<method name='registerKeys' fullname='io.nucleo.scheduler.model:PropertyProviderModel/protected:registerKeys' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+         To be overwritten in subclass.
+         Register all property keys which are not available at startup.
+         These property keys will be used for writing into the data dictionary from any task during the
+         execution process.
+         This is next to the constructor the central place where all available properties are visible.
+         ]]></description>
+</method>
+<method name='registerObject' fullname='io.nucleo.scheduler.model:PropertyProviderModel/protected:registerObject' isStatic='false' isFinal='true' isOverride='false'  param_names='key;value' param_types='Object;Object' param_defaults='undefined;undefined' result_type='void'>
+<description><![CDATA[
+         ]]></description>
+<param><![CDATA[key
+         ]]></param>
+<param><![CDATA[value
+         ]]></param>
+</method>
+<method name='write' fullname='io.nucleo.scheduler.model:PropertyProviderModel/write' isStatic='false' isFinal='false' isOverride='false'  param_names='key;value' param_types='Object;Object' param_defaults='undefined;undefined' result_type='void'>
+<description><![CDATA[
+         
+                  ]]></description>
+<param><![CDATA[key       The key to be used for the given value. Can be of any type. Typically an interface, class
+                          or string.
+         ]]></param>
+<param><![CDATA[value     The value to be stored.
+         ]]></param>
+</method>
+<field name='data' fullname='io.nucleo.scheduler.model:PropertyProviderModel/private:data' type='flash.utils:Dictionary' isStatic='false' isConst='false' >
+</field>
+<field name='registeredPropertiesMap' fullname='io.nucleo.scheduler.model:PropertyProviderModel/private:registeredPropertiesMap' type='flash.utils:Dictionary' isStatic='false' isConst='false' >
+</field>
+<interfaceRec name='IConfig' fullname='io.nucleo.inject:IConfig' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/inject/IConfig.as' namespace='io.nucleo.inject' access='public' baseClasses='Object' isFinal='false' isDynamic='false' >
+</interfaceRec>
+<method name='mapClass' fullname='io.nucleo.inject:IConfig/io.nucleo.inject:IConfig:mapClass' isStatic='false' isFinal='false' isOverride='false'  param_names='classDefinition' param_types='Class' param_defaults='undefined' result_type='io.nucleo.inject:IMapping'>
+<description><![CDATA[
+          ]]></description>
+<param><![CDATA[classDefinition      The Class definition used as mapping key.
+     ]]></param>
+<return><![CDATA[     ]]></return>
+</method>
+<method name='mapInterface' fullname='io.nucleo.inject:IConfig/io.nucleo.inject:IConfig:mapInterface' isStatic='false' isFinal='false' isOverride='false'  param_names='interfaceDefinition' param_types='Class' param_defaults='undefined' result_type='io.nucleo.inject:IMapping'>
+<description><![CDATA[
+          ]]></description>
+<param><![CDATA[interfaceDefinition   The Interface definition used as mapping key.
+     ]]></param>
+<return><![CDATA[     ]]></return>
+</method>
+<method name='mapParameterName' fullname='io.nucleo.inject:IConfig/io.nucleo.inject:IConfig:mapParameterName' isStatic='false' isFinal='false' isOverride='false'  param_names='parameterName' param_types='String' param_defaults='undefined' result_type='io.nucleo.inject:IMapping'>
+<description><![CDATA[
+          ]]></description>
+<param><![CDATA[parameterName      The parameter name used as mapping key.
+     ]]></param>
+<return><![CDATA[     ]]></return>
+</method>
+<interfaceRec name='IProvider' fullname='io.nucleo.inject:IProvider' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/inject/IProvider.as' namespace='io.nucleo.inject' access='public' baseClasses='Object' isFinal='false' isDynamic='false' >
+</interfaceRec>
+<method name='getObject' fullname='io.nucleo.inject:IProvider/io.nucleo.inject:IProvider:getObject' isStatic='false' isFinal='false' isOverride='false'  result_type='Object'>
+<description><![CDATA[
+          ]]></description>
+<return><![CDATA[     The object created in a customized way.
+     ]]></return>
+</method>
+<classRec name='CreationPolicy' fullname='io.nucleo.inject:CreationPolicy' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/inject/CreationPolicy.as' namespace='io.nucleo.inject' access='public' baseclass='Object' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='CreationPolicy' fullname='io.nucleo.inject:CreationPolicy/CreationPolicy' isStatic='false' isFinal='false' isOverride='false'  result_type='*'>
+</method>
+<method name='asSingleton' fullname='io.nucleo.inject:CreationPolicy/asSingleton' isStatic='false' isFinal='false' isOverride='false'  result_type='io.nucleo.inject:CreationPolicy'>
+<description><![CDATA[
+     If this fluent interface node is used the Injector takes care that only one instance for this mapping is created.
+     ]]></description>
+<return><![CDATA[     ]]></return>
+</method>
+<method name='isSingleton' fullname='io.nucleo.inject:CreationPolicy/io.nucleo.inject:isSingleton/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Boolean'>
+</method>
+<field name='_isSingleton' fullname='io.nucleo.inject:CreationPolicy/private:_isSingleton' type='Boolean' isStatic='false' isConst='false' >
+</field>
+<interfaceRec name='IMappingInfo' fullname='io.nucleo.inject:IMappingInfo' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/inject/IMappingInfo.as' namespace='io.nucleo.inject' access='public' baseClasses='Object' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+     IMappingInfo is only used internally.
+     ]]></description>
+</interfaceRec>
+<method name='cacheInstance' fullname='io.nucleo.inject:IMappingInfo/io.nucleo.inject:IMappingInfo:cacheInstance' isStatic='false' isFinal='false' isOverride='false'  param_names='instance' param_types='Object' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='classDefinition' fullname='io.nucleo.inject:IMappingInfo/io.nucleo.inject:IMappingInfo:classDefinition/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Class'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='factoryMethod' fullname='io.nucleo.inject:IMappingInfo/io.nucleo.inject:IMappingInfo:factoryMethod/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Function'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='instance' fullname='io.nucleo.inject:IMappingInfo/io.nucleo.inject:IMappingInfo:instance/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Object'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='isSingleton' fullname='io.nucleo.inject:IMappingInfo/io.nucleo.inject:IMappingInfo:isSingleton/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Boolean'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='onDemandFactory' fullname='io.nucleo.inject:IMappingInfo/io.nucleo.inject:IMappingInfo:onDemandFactory/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Class'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='provider' fullname='io.nucleo.inject:IMappingInfo/io.nucleo.inject:IMappingInfo:provider/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Class'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<interfaceRec name='IOnDemandFactory' fullname='io.nucleo.inject:IOnDemandFactory' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/inject/IOnDemandFactory.as' namespace='io.nucleo.inject' access='public' baseClasses='Object' isFinal='false' isDynamic='false' >
+</interfaceRec>
+<method name='getObject' fullname='io.nucleo.inject:IOnDemandFactory/io.nucleo.inject:IOnDemandFactory:getObject' isStatic='false' isFinal='false' isOverride='false'  result_type='Object'>
+<description><![CDATA[
+          ]]></description>
+<return><![CDATA[ The object created on demand when it is needed.
+     ]]></return>
+</method>
+<interfaceRec name='IMapping' fullname='io.nucleo.inject:IMapping' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/inject/IMapping.as' namespace='io.nucleo.inject' access='public' baseClasses='Object' isFinal='false' isDynamic='false' >
+</interfaceRec>
+<method name='toClass' fullname='io.nucleo.inject:IMapping/io.nucleo.inject:IMapping:toClass' isStatic='false' isFinal='false' isOverride='false'  param_names='classDefinition' param_types='Class' param_defaults='undefined' result_type='io.nucleo.inject:CreationPolicy'>
+<description><![CDATA[
+          ]]></description>
+<param><![CDATA[classDefinition   Class definition used for creating the target object.
+     ]]></param>
+<return><![CDATA[     ]]></return>
+</method>
+<method name='toFactoryMethod' fullname='io.nucleo.inject:IMapping/io.nucleo.inject:IMapping:toFactoryMethod' isStatic='false' isFinal='false' isOverride='false'  param_names='factoryMethod' param_types='Function' param_defaults='undefined' result_type='io.nucleo.inject:CreationPolicy'>
+<description><![CDATA[
+          ]]></description>
+<param><![CDATA[factoryMethod     Factory method used for custom object construction. Similar to the solution with
+                              IProvider but there is no extra class used, only a method in the config for the
+                              construction of the object.
+     ]]></param>
+<return><![CDATA[     ]]></return>
+</method>
+<method name='toInstance' fullname='io.nucleo.inject:IMapping/io.nucleo.inject:IMapping:toInstance' isStatic='false' isFinal='false' isOverride='false'  param_names='instance' param_types='Object' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+          ]]></description>
+<param><![CDATA[instance      Target instance of mapping.
+     ]]></param>
+</method>
+<method name='toOnDemandFactory' fullname='io.nucleo.inject:IMapping/io.nucleo.inject:IMapping:toOnDemandFactory' isStatic='false' isFinal='false' isOverride='false'  param_names='onDemandFactory' param_types='Class' param_defaults='undefined' result_type='io.nucleo.inject:CreationPolicy'>
+<description><![CDATA[
+          ]]></description>
+<param><![CDATA[onDemandFactory       On demand factory of type IOnDemandFactory used for on demand object construction.
+                                  You can inject this factory and the actual object creation will be triggered when
+                                  the getObject() method is called.
+     ]]></param>
+<return><![CDATA[     ]]></return>
+</method>
+<method name='toProvider' fullname='io.nucleo.inject:IMapping/io.nucleo.inject:IMapping:toProvider' isStatic='false' isFinal='false' isOverride='false'  param_names='providerClass' param_types='Class' param_defaults='undefined' result_type='io.nucleo.inject:CreationPolicy'>
+<description><![CDATA[
+          ]]></description>
+<param><![CDATA[providerClass     Provider class of type IProvider to be used for custom object construction.
+                              Is needed for 3rd party Classes or for more complex construction setup.
+     ]]></param>
+<return><![CDATA[     ]]></return>
+</method>
+<interfaceRec name='IInjector' fullname='io.nucleo.inject:IInjector' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/inject/IInjector.as' namespace='io.nucleo.inject' access='public' baseClasses='Object' isFinal='false' isDynamic='false' >
+</interfaceRec>
+<method name='destroy' fullname='io.nucleo.inject:IInjector/io.nucleo.inject:IInjector:destroy' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+     Cleanup all resources.
+     ]]></description>
+</method>
+<method name='getObject' fullname='io.nucleo.inject:IInjector/io.nucleo.inject:IInjector:getObject' isStatic='false' isFinal='false' isOverride='false'  param_names='mappingKey' param_types='Object' param_defaults='undefined' result_type='*'>
+<description><![CDATA[
+          ]]></description>
+<param><![CDATA[mappingKey        The mapping key to get the associated object.
+     ]]></param>
+<return><![CDATA[     ]]></return>
+</method>
+<interfaceRec name='IConfigInfo' fullname='io.nucleo.inject:IConfigInfo' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/inject/IConfigInfo.as' namespace='io.nucleo.inject' access='public' baseClasses='Object' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+     IConfigInfo is only used internally.
+     ]]></description>
+</interfaceRec>
+<method name='destroy' fullname='io.nucleo.inject:IConfigInfo/io.nucleo.inject:IConfigInfo:destroy' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='getConstructorParameters' fullname='io.nucleo.inject:IConfigInfo/io.nucleo.inject:IConfigInfo:getConstructorParameters' isStatic='false' isFinal='false' isOverride='false'  param_names='classDefinition' param_types='Class' param_defaults='undefined' result_type='Array'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='getMapping' fullname='io.nucleo.inject:IConfigInfo/io.nucleo.inject:IConfigInfo:getMapping' isStatic='false' isFinal='false' isOverride='false'  param_names='key' param_types='Object' param_defaults='undefined' result_type='io.nucleo.inject:IMappingInfo'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<classRec name='Mapping' fullname='io.nucleo.inject:Mapping' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/inject/Mapping.as' namespace='io.nucleo.inject' access='public' baseclass='Object' interfaces='io.nucleo.inject:IMapping;io.nucleo.inject:IMappingInfo' isFinal='true' isDynamic='false' >
+</classRec>
+<method name='Mapping' fullname='io.nucleo.inject:Mapping/Mapping' isStatic='false' isFinal='false' isOverride='false'  result_type='*'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='cacheInstance' fullname='io.nucleo.inject:Mapping/cacheInstance' isStatic='false' isFinal='false' isOverride='false'  param_names='instance' param_types='Object' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='setCreationPolicy' fullname='io.nucleo.inject:Mapping/private:setCreationPolicy' isStatic='false' isFinal='false' isOverride='false'  result_type='io.nucleo.inject:CreationPolicy'>
+</method>
+<method name='toClass' fullname='io.nucleo.inject:Mapping/toClass' isStatic='false' isFinal='false' isOverride='false'  param_names='classDefinition' param_types='Class' param_defaults='undefined' result_type='io.nucleo.inject:CreationPolicy'>
+<description><![CDATA[
+         
+          ]]></description>
+<param><![CDATA[classDefinition   Class definition used for creating the target object.
+     ]]></param>
+<return><![CDATA[     ]]></return>
+</method>
+<method name='toFactoryMethod' fullname='io.nucleo.inject:Mapping/toFactoryMethod' isStatic='false' isFinal='false' isOverride='false'  param_names='factoryMethod' param_types='Function' param_defaults='undefined' result_type='io.nucleo.inject:CreationPolicy'>
+<description><![CDATA[
+         
+          ]]></description>
+<param><![CDATA[factoryMethod     Factory method used for custom object construction. Similar to the solution with
+                              IProvider but there is no extra class used, only a method in the config for the
+                              construction of the object.
+     ]]></param>
+<return><![CDATA[     ]]></return>
+</method>
+<method name='toInstance' fullname='io.nucleo.inject:Mapping/toInstance' isStatic='false' isFinal='false' isOverride='false'  param_names='instance' param_types='Object' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+         
+          ]]></description>
+<param><![CDATA[instance      Target instance of mapping.
+     ]]></param>
+</method>
+<method name='toOnDemandFactory' fullname='io.nucleo.inject:Mapping/toOnDemandFactory' isStatic='false' isFinal='false' isOverride='false'  param_names='onDemandFactory' param_types='Class' param_defaults='undefined' result_type='io.nucleo.inject:CreationPolicy'>
+<description><![CDATA[
+         
+          ]]></description>
+<param><![CDATA[onDemandFactory       On demand factory of type IOnDemandFactory used for on demand object construction.
+                                  You can inject this factory and the actual object creation will be triggered when
+                                  the getObject() method is called.
+     ]]></param>
+<return><![CDATA[     ]]></return>
+</method>
+<method name='toProvider' fullname='io.nucleo.inject:Mapping/toProvider' isStatic='false' isFinal='false' isOverride='false'  param_names='providerClass' param_types='Class' param_defaults='undefined' result_type='io.nucleo.inject:CreationPolicy'>
+<description><![CDATA[
+         
+          ]]></description>
+<param><![CDATA[providerClass     Provider class of type IProvider to be used for custom object construction.
+                              Is needed for 3rd party Classes or for more complex construction setup.
+     ]]></param>
+<return><![CDATA[     ]]></return>
+</method>
+<method name='classDefinition' fullname='io.nucleo.inject:Mapping/classDefinition/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Class'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='factoryMethod' fullname='io.nucleo.inject:Mapping/factoryMethod/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Function'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='instance' fullname='io.nucleo.inject:Mapping/instance/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Object'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='isSingleton' fullname='io.nucleo.inject:Mapping/isSingleton/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Boolean'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='onDemandFactory' fullname='io.nucleo.inject:Mapping/onDemandFactory/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Class'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='provider' fullname='io.nucleo.inject:Mapping/provider/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Class'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<field name='_classDefinition' fullname='io.nucleo.inject:Mapping/private:_classDefinition' type='Class' isStatic='false' isConst='false' >
+</field>
+<field name='_factoryMethod' fullname='io.nucleo.inject:Mapping/private:_factoryMethod' type='Function' isStatic='false' isConst='false' >
+</field>
+<field name='_instance' fullname='io.nucleo.inject:Mapping/private:_instance' type='Object' isStatic='false' isConst='false' >
+</field>
+<field name='_onDemandFactory' fullname='io.nucleo.inject:Mapping/private:_onDemandFactory' type='Class' isStatic='false' isConst='false' >
+</field>
+<field name='_provider' fullname='io.nucleo.inject:Mapping/private:_provider' type='Class' isStatic='false' isConst='false' >
+</field>
+<field name='policy' fullname='io.nucleo.inject:Mapping/private:policy' type='io.nucleo.inject:CreationPolicy' isStatic='false' isConst='false' >
+</field>
+<classRec name='AConstructorParameters' fullname='io.nucleo.inject:AConstructorParameters' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/inject/AConstructorParameters.as' namespace='io.nucleo.inject' access='public' baseclass='Object' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='AConstructorParameters' fullname='io.nucleo.inject:AConstructorParameters/AConstructorParameters' isStatic='false' isFinal='false' isOverride='false'  result_type='*'>
+</method>
+<method name='config' fullname='io.nucleo.inject:AConstructorParameters/protected:config' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+     This will be overwritten by the concrete class (auto generated).<br>
+     For example: <code>constructorParameterKeys[Client] = ["theFewSpanishWords", IBar];</code>
+     ]]></description>
+</method>
+<method name='destroy' fullname='io.nucleo.inject:AConstructorParameters/io.nucleo.inject:destroy' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+     ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='getConstructorParameters' fullname='io.nucleo.inject:AConstructorParameters/io.nucleo.inject:getConstructorParameters' isStatic='false' isFinal='false' isOverride='false'  param_names='classDefinition' param_types='Class' param_defaults='undefined' result_type='Array'>
+<description><![CDATA[
+     ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<field name='constructorParameterKeys' fullname='io.nucleo.inject:AConstructorParameters/protected:constructorParameterKeys' type='flash.utils:Dictionary' isStatic='false' isConst='false' >
+<description><![CDATA[
+     The dictionary used to store the constructor parameter keys for a class.<br>
+     The key of the dictionary is the class for which we store the constructor parameters.<br>
+     The value is an array of constructor parameter keys.
+     ]]></description>
+</field>
+<classRec name='Injector' fullname='io.nucleo.inject:Injector' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/inject/Injector.as' namespace='io.nucleo.inject' access='public' baseclass='Object' interfaces='io.nucleo.inject:IInjector' isFinal='true' isDynamic='false' >
+</classRec>
+<method name='Injector' fullname='io.nucleo.inject:Injector/Injector' isStatic='false' isFinal='false' isOverride='false'  param_names='config;singletonProtectionPin' param_types='io.nucleo.inject:IConfigInfo;Number' param_defaults='undefined;undefined' result_type='*'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='createInjector' fullname='io.nucleo.inject:Injector/io.nucleo.inject:createInjector' isStatic='true' isFinal='false' isOverride='false'  param_names='config;scopePolicy' param_types='io.nucleo.inject:IConfigInfo;io.nucleo.inject.scope:IScopePolicy' param_defaults='undefined;null' result_type='io.nucleo.inject:IInjector'>
+<description><![CDATA[
+         This method is only used via the createInjector package level function.
+                  ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='destroy' fullname='io.nucleo.inject:Injector/destroy' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+         
+     Cleanup all resources.
+     ]]></description>
+</method>
+<method name='getObject' fullname='io.nucleo.inject:Injector/getObject' isStatic='false' isFinal='false' isOverride='false'  param_names='mappingKey' param_types='Object' param_defaults='undefined' result_type='*'>
+<description><![CDATA[
+         
+          ]]></description>
+<param><![CDATA[mappingKey        The mapping key to get the associated object.
+     ]]></param>
+<return><![CDATA[     ]]></return>
+</method>
+<method name='injectByClassDefinition' fullname='io.nucleo.inject:Injector/private:injectByClassDefinition' isStatic='false' isFinal='false' isOverride='false'  param_names='mapping;classDefinition' param_types='io.nucleo.inject:IMappingInfo;Class' param_defaults='undefined;undefined' result_type='Object'>
+</method>
+<field name='circularDependencies' fullname='io.nucleo.inject:Injector/private:circularDependencies' type='flash.utils:Dictionary' isStatic='false' isConst='false' >
+</field>
+<field name='config' fullname='io.nucleo.inject:Injector/private:config' type='io.nucleo.inject:IConfigInfo' isStatic='false' isConst='false' >
+</field>
+<field name='scopePolicy' fullname='io.nucleo.inject:Injector/private:scopePolicy' type='io.nucleo.inject.scope:IScopePolicy' isStatic='true' isConst='false' >
+</field>
+<field name='scopedInjectors' fullname='io.nucleo.inject:Injector/private:scopedInjectors' type='Object' isStatic='true' isConst='true' defaultValue='unknown' >
+</field>
+<field name='singletonPrivatePin' fullname='io.nucleo.inject:Injector/private:singletonPrivatePin' type='Number' isStatic='true' isConst='false' defaultValue='' >
+</field>
+<method name='createInjector' fullname='io.nucleo.inject:createInjector' isStatic='false' isFinal='false' isOverride='false'  param_names='config;scopePolicy' param_types='io.nucleo.inject:IConfig;io.nucleo.inject.scope:IScopePolicy' param_defaults='undefined;null' result_type='io.nucleo.inject:IInjector'>
+<description><![CDATA[
+          ]]></description>
+<param><![CDATA[config       The config to be used.
+     ]]></param>
+<param><![CDATA[scopePolicy   Optional scope policy. If not set the DefaultScopePolicy is used.
+     ]]></param>
+<return><![CDATA[     ]]></return>
+</method>
+<classRec name='AConfig' fullname='io.nucleo.inject:AConfig' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/inject/AConfig.as' namespace='io.nucleo.inject' access='public' baseclass='Object' interfaces='io.nucleo.inject:IConfig;io.nucleo.inject:IConfigInfo' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='AConfig' fullname='io.nucleo.inject:AConfig/AConfig' isStatic='false' isFinal='false' isOverride='false'  param_names='constructorParameters' param_types='io.nucleo.inject:AConstructorParameters' param_defaults='undefined' result_type='*'>
+<description><![CDATA[
+                  ]]></description>
+<param><![CDATA[constructorParameters     The concrete ConstructorParameters class.
+         ]]></param>
+</method>
+<method name='destroy' fullname='io.nucleo.inject:AConfig/destroy' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='getConstructorParameters' fullname='io.nucleo.inject:AConfig/getConstructorParameters' isStatic='false' isFinal='true' isOverride='false'  param_names='classDefinition' param_types='Class' param_defaults='undefined' result_type='Array'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='getMapping' fullname='io.nucleo.inject:AConfig/getMapping' isStatic='false' isFinal='true' isOverride='false'  param_names='key' param_types='Object' param_defaults='undefined' result_type='io.nucleo.inject:IMappingInfo'>
+<description><![CDATA[
+         ]]></description>
+<private><![CDATA[]]></private>
+</method>
+<method name='map' fullname='io.nucleo.inject:AConfig/private:map' isStatic='false' isFinal='false' isOverride='false'  param_names='key' param_types='Object' param_defaults='undefined' result_type='io.nucleo.inject:IMapping'>
+</method>
+<method name='mapClass' fullname='io.nucleo.inject:AConfig/mapClass' isStatic='false' isFinal='true' isOverride='false'  param_names='classDefinition' param_types='Class' param_defaults='undefined' result_type='io.nucleo.inject:IMapping'>
+<description><![CDATA[
+         
+          ]]></description>
+<param><![CDATA[classDefinition      The Class definition used as mapping key.
+     ]]></param>
+<return><![CDATA[     ]]></return>
+</method>
+<method name='mapInterface' fullname='io.nucleo.inject:AConfig/mapInterface' isStatic='false' isFinal='true' isOverride='false'  param_names='interfaceDefinition' param_types='Class' param_defaults='undefined' result_type='io.nucleo.inject:IMapping'>
+<description><![CDATA[
+         
+          ]]></description>
+<param><![CDATA[interfaceDefinition   The Interface definition used as mapping key.
+     ]]></param>
+<return><![CDATA[     ]]></return>
+</method>
+<method name='mapParameterName' fullname='io.nucleo.inject:AConfig/mapParameterName' isStatic='false' isFinal='true' isOverride='false'  param_names='parameterName' param_types='String' param_defaults='undefined' result_type='io.nucleo.inject:IMapping'>
+<description><![CDATA[
+         
+          ]]></description>
+<param><![CDATA[parameterName      The parameter name used as mapping key.
+     ]]></param>
+<return><![CDATA[     ]]></return>
+</method>
+<method name='setup' fullname='io.nucleo.inject:AConfig/protected:setup' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+         To be used by sub classes to define the mappings
+         ]]></description>
+</method>
+<field name='constructorParameters' fullname='io.nucleo.inject:AConfig/private:constructorParameters' type='io.nucleo.inject:AConstructorParameters' isStatic='false' isConst='false' >
+</field>
+<field name='mappings' fullname='io.nucleo.inject:AConfig/private:mappings' type='flash.utils:Dictionary' isStatic='false' isConst='false' >
+</field>
+<interfaceRec name='IRunnableObserver' fullname='io.nucleo.scheduler.runnables:IRunnableObserver' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/scheduler/runnables/IRunnableObserver.as' namespace='io.nucleo.scheduler.runnables' access='public' baseClasses='Object' isFinal='false' isDynamic='false' >
+</interfaceRec>
+<method name='onRunnableComplete' fullname='io.nucleo.scheduler.runnables:IRunnableObserver/io.nucleo.scheduler.runnables:IRunnableObserver:onRunnableComplete' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+         Called when a IRunnable object is completed.
+         ]]></description>
+</method>
+<method name='onRunnableFault' fullname='io.nucleo.scheduler.runnables:IRunnableObserver/io.nucleo.scheduler.runnables:IRunnableObserver:onRunnableFault' isStatic='false' isFinal='false' isOverride='false'  param_names='runnableFault' param_types='io.nucleo.scheduler.runnables:RunnableFault' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+         Called when a IRunnable object has failed.
+         ]]></description>
+<param><![CDATA[runnableFault
+         ]]></param>
+</method>
+<classRec name='RunnableFault' fullname='io.nucleo.scheduler.runnables:RunnableFault' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/scheduler/runnables/RunnableFault.as' namespace='io.nucleo.scheduler.runnables' access='public' baseclass='Object' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='RunnableFault' fullname='io.nucleo.scheduler.runnables:RunnableFault/RunnableFault' isStatic='false' isFinal='false' isOverride='false'  param_names='message;data' param_types='String;Object' param_defaults='undefined;null' result_type='*'>
+<description><![CDATA[
+                  ]]></description>
+<param><![CDATA[message
+         ]]></param>
+<param><![CDATA[data
+         ]]></param>
+</method>
+<method name='toString' fullname='io.nucleo.scheduler.runnables:RunnableFault/toString' isStatic='false' isFinal='false' isOverride='false'  result_type='String'>
+</method>
+<method name='data' fullname='io.nucleo.scheduler.runnables:RunnableFault/data/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Object'>
+</method>
+<method name='message' fullname='io.nucleo.scheduler.runnables:RunnableFault/message/get' isStatic='false' isFinal='false' isOverride='false'  result_type='String'>
+</method>
+<field name='_data' fullname='io.nucleo.scheduler.runnables:RunnableFault/private:_data' type='Object' isStatic='false' isConst='false' >
+</field>
+<field name='_message' fullname='io.nucleo.scheduler.runnables:RunnableFault/private:_message' type='String' isStatic='false' isConst='false' >
+</field>
+<interfaceRec name='IRunnable' fullname='io.nucleo.scheduler.runnables:IRunnable' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/scheduler/runnables/IRunnable.as' namespace='io.nucleo.scheduler.runnables' access='public' baseClasses='Object' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+     The base interface for all runnable objects (tasks, schedulers)
+     ]]></description>
+</interfaceRec>
+<method name='run' fullname='io.nucleo.scheduler.runnables:IRunnable/io.nucleo.scheduler.runnables:IRunnable:run' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+         Starts the execution.
+         ]]></description>
+</method>
+<method name='setLogger' fullname='io.nucleo.scheduler.runnables:IRunnable/io.nucleo.scheduler.runnables:IRunnable:setLogger' isStatic='false' isFinal='false' isOverride='false'  param_names='logger;logTasksOnly' param_types='mx.logging:ILogger;Boolean' param_defaults='undefined;true' result_type='void'>
+<description><![CDATA[
+                  ]]></description>
+<param><![CDATA[logger            The logger used for debug and error messages.
+         ]]></param>
+<param><![CDATA[logTasksOnly      If true (default) only the tasks (implementing ITask) are used for logging, not the
+                                  schedulers.
+         ]]></param>
+</method>
+<method name='setModel' fullname='io.nucleo.scheduler.runnables:IRunnable/io.nucleo.scheduler.runnables:IRunnable:setModel' isStatic='false' isFinal='false' isOverride='false'  param_names='model' param_types='Object' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+                  ]]></description>
+<param><![CDATA[model             The model used as shared data storage between the tasks.
+         ]]></param>
+</method>
+<method name='setObserver' fullname='io.nucleo.scheduler.runnables:IRunnable/io.nucleo.scheduler.runnables:IRunnable:setObserver' isStatic='false' isFinal='false' isOverride='false'  param_names='scheduler' param_types='io.nucleo.scheduler.runnables:IRunnableObserver' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+                  ]]></description>
+<param><![CDATA[observer          The IRunnableObserver instance getting notified on complete and fault.
+         ]]></param>
+</method>
+<classRec name='ARunnable' fullname='io.nucleo.scheduler.runnables:ARunnable' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/scheduler/runnables/ARunnable.as' namespace='io.nucleo.scheduler.runnables' access='public' baseclass='Object' interfaces='io.nucleo.scheduler.runnables:IRunnable' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+     The base class for all runnable objects (tasks, schedulers)
+     ]]></description>
+</classRec>
+<method name='ARunnable' fullname='io.nucleo.scheduler.runnables:ARunnable/ARunnable' isStatic='false' isFinal='false' isOverride='false'  result_type='*'>
+</method>
+<method name='complete' fullname='io.nucleo.scheduler.runnables:ARunnable/protected:complete' isStatic='false' isFinal='true' isOverride='false'  result_type='void'>
+</method>
+<method name='destroy' fullname='io.nucleo.scheduler.runnables:ARunnable/protected:destroy' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+         To be used by sub classes for cleanup.
+         ]]></description>
+</method>
+<method name='failed' fullname='io.nucleo.scheduler.runnables:ARunnable/protected:failed' isStatic='false' isFinal='true' isOverride='false'  param_names='fault' param_types='Object' param_defaults='undefined' result_type='void'>
+</method>
+<method name='run' fullname='io.nucleo.scheduler.runnables:ARunnable/run' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+         
+         Starts the execution.
+         ]]></description>
+</method>
+<method name='setLogger' fullname='io.nucleo.scheduler.runnables:ARunnable/setLogger' isStatic='false' isFinal='false' isOverride='false'  param_names='logger;logTasksOnly' param_types='mx.logging:ILogger;Boolean' param_defaults='undefined;true' result_type='void'>
+<description><![CDATA[
+         
+                  ]]></description>
+<param><![CDATA[logger            The logger used for debug and error messages.
+         ]]></param>
+<param><![CDATA[logTasksOnly      If true (default) only the tasks (implementing ITask) are used for logging, not the
+                                  schedulers.
+         ]]></param>
+</method>
+<method name='setModel' fullname='io.nucleo.scheduler.runnables:ARunnable/setModel' isStatic='false' isFinal='false' isOverride='false'  param_names='model' param_types='Object' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+         
+                  ]]></description>
+<param><![CDATA[model             The model used as shared data storage between the tasks.
+         ]]></param>
+</method>
+<method name='setObserver' fullname='io.nucleo.scheduler.runnables:ARunnable/setObserver' isStatic='false' isFinal='false' isOverride='false'  param_names='observer' param_types='io.nucleo.scheduler.runnables:IRunnableObserver' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+         
+                  ]]></description>
+<param><![CDATA[observer          The IRunnableObserver instance getting notified on complete and fault.
+         ]]></param>
+</method>
+<field name='isFailed' fullname='io.nucleo.scheduler.runnables:ARunnable/protected:isFailed' type='Boolean' isStatic='false' isConst='false' >
+</field>
+<field name='logTasksOnly' fullname='io.nucleo.scheduler.runnables:ARunnable/protected:logTasksOnly' type='Boolean' isStatic='false' isConst='false' >
+</field>
+<field name='logger' fullname='io.nucleo.scheduler.runnables:ARunnable/protected:logger' type='mx.logging:ILogger' isStatic='false' isConst='false' >
+</field>
+<field name='model' fullname='io.nucleo.scheduler.runnables:ARunnable/protected:model' type='Object' isStatic='false' isConst='false' >
+</field>
+<field name='observer' fullname='io.nucleo.scheduler.runnables:ARunnable/protected:observer' type='io.nucleo.scheduler.runnables:IRunnableObserver' isStatic='false' isConst='false' >
+</field>
+<field name='startTime' fullname='io.nucleo.scheduler.runnables:ARunnable/protected:startTime' type='int' isStatic='false' isConst='false' >
+</field>
+<classRec name='ClassUtil' fullname='io.nucleo.utils:ClassUtil' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/utils/ClassUtil.as' namespace='io.nucleo.utils' access='public' baseclass='Object' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='createInstance' fullname='io.nucleo.utils:ClassUtil/createInstance' isStatic='true' isFinal='false' isOverride='false'  param_names='classDefinition;arguments' param_types='Class;Array' param_defaults='undefined;null' result_type='*'>
+<description><![CDATA[
+         Helper to create a class with a list of arguments
+                  ]]></description>
+<param><![CDATA[classDefinition           The class definition used to create the instance.
+         ]]></param>
+<param><![CDATA[arguments                 The arguments used when creating an instance from the class definition.
+         ]]></param>
+<return><![CDATA[                         The instance of the the class definition.
+         ]]></return>
+</method>
+<interfaceRec name='IScopePolicy' fullname='io.nucleo.inject.scope:IScopePolicy' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/inject/scope/IScopePolicy.as' namespace='io.nucleo.inject.scope' access='public' baseClasses='Object' isFinal='false' isDynamic='false' >
+</interfaceRec>
+<method name='getScope' fullname='io.nucleo.inject.scope:IScopePolicy/io.nucleo.inject.scope:IScopePolicy:getScope' isStatic='false' isFinal='false' isOverride='false'  param_names='object' param_types='Object' param_defaults='null' result_type='String'>
+<description><![CDATA[
+          ]]></description>
+<param><![CDATA[object    An optional object to be passed for deriving the scope ID from it (e.g. package name)
+     ]]></param>
+<return><![CDATA[         The ID of the scope.
+     ]]></return>
+</method>
+<classRec name='GlobalScopePolicy' fullname='io.nucleo.inject.scope:GlobalScopePolicy' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/inject/scope/GlobalScopePolicy.as' namespace='io.nucleo.inject.scope' access='public' baseclass='Object' interfaces='io.nucleo.inject.scope:IScopePolicy' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='getScope' fullname='io.nucleo.inject.scope:GlobalScopePolicy/getScope' isStatic='false' isFinal='false' isOverride='false'  param_names='object' param_types='Object' param_defaults='null' result_type='String'>
+<description><![CDATA[
+         
+          ]]></description>
+<param><![CDATA[object    An optional object to be passed for deriving the scope ID from it (e.g. package name)
+     ]]></param>
+<return><![CDATA[         The ID of the scope.
+     ]]></return>
+</method>
+<classRec name='DefaultScopePolicy' fullname='io.nucleo.inject.scope:DefaultScopePolicy' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/inject/scope/DefaultScopePolicy.as' namespace='io.nucleo.inject.scope' access='public' baseclass='Object' interfaces='io.nucleo.inject.scope:IScopePolicy' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+     The DefaultScopePolicy use the package name of the config class as the scope ID.
+     ]]></description>
+</classRec>
+<method name='getScope' fullname='io.nucleo.inject.scope:DefaultScopePolicy/getScope' isStatic='false' isFinal='false' isOverride='false'  param_names='object' param_types='Object' param_defaults='null' result_type='String'>
+<description><![CDATA[
+         
+          ]]></description>
+<param><![CDATA[object    An optional object to be passed for deriving the scope ID from it (e.g. package name)
+     ]]></param>
+<return><![CDATA[         The ID of the scope.
+     ]]></return>
+</method>
+<classRec name='AbstractMethodInvocationError' fullname='io.nucleo.errors:AbstractMethodInvocationError' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/errors/AbstractMethodInvocationError.as' namespace='io.nucleo.errors' access='public' baseclass='Error' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+     Used to protect abstract methods, as abstract is not supported in AS3 we throw this error at runtime
+     to get a better protection against incorrect usage.
+     ]]></description>
+</classRec>
+<method name='AbstractMethodInvocationError' fullname='io.nucleo.errors:AbstractMethodInvocationError/AbstractMethodInvocationError' isStatic='false' isFinal='false' isOverride='false'  param_names='classInstance;methodName' param_types='Object;String' param_defaults='undefined;undefined' result_type='*'>
+<description><![CDATA[
+                  ]]></description>
+<param><![CDATA[instance      The class instance where the error is thrown
+         ]]></param>
+<param><![CDATA[methodName    The name of the abstract method
+         ]]></param>
+</method>
+<interfaceRec name='IScheduler' fullname='io.nucleo.scheduler:IScheduler' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/scheduler/IScheduler.as' namespace='io.nucleo.scheduler' access='public' baseClasses='io.nucleo.scheduler.runnables:IRunnable' isFinal='false' isDynamic='false' >
+</interfaceRec>
+<method name='runnableElements' fullname='io.nucleo.scheduler:IScheduler/io.nucleo.scheduler:IScheduler:runnableElements/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Array'>
+<description><![CDATA[
+         ]]></description>
+<return><![CDATA[         ]]></return>
+</method>
+<method name='runnableElements' fullname='io.nucleo.scheduler:IScheduler/io.nucleo.scheduler:IScheduler:runnableElements/set' isStatic='false' isFinal='false' isOverride='false'  param_names='value' param_types='Array' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+                  ]]></description>
+<param><![CDATA[value
+         ]]></param>
+</method>
+<classRec name='AScheduler' fullname='io.nucleo.scheduler:AScheduler' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/scheduler/AScheduler.as' namespace='io.nucleo.scheduler' access='public' baseclass='io.nucleo.scheduler.runnables:ARunnable' interfaces='io.nucleo.scheduler:IScheduler;io.nucleo.scheduler.runnables:IRunnableObserver' isFinal='false' isDynamic='false' >
+<metadata>
+	<DefaultProperty owner='io.nucleo.scheduler:AScheduler' name='runnableElements' >
+	</DefaultProperty>
+</metadata>
+</classRec>
+<method name='AScheduler' fullname='io.nucleo.scheduler:AScheduler/AScheduler' isStatic='false' isFinal='false' isOverride='false'  result_type='*'>
+</method>
+<method name='destroy' fullname='io.nucleo.scheduler:AScheduler/protected:destroy' isStatic='false' isFinal='false' isOverride='true'  result_type='void'>
+</method>
+<method name='onRunnableComplete' fullname='io.nucleo.scheduler:AScheduler/onRunnableComplete' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+</method>
+<method name='onRunnableFault' fullname='io.nucleo.scheduler:AScheduler/onRunnableFault' isStatic='false' isFinal='false' isOverride='false'  param_names='runnableFault' param_types='io.nucleo.scheduler.runnables:RunnableFault' param_defaults='undefined' result_type='void'>
+</method>
+<method name='runnableElements' fullname='io.nucleo.scheduler:AScheduler/runnableElements/get' isStatic='false' isFinal='false' isOverride='false'  result_type='Array'>
+</method>
+<method name='runnableElements' fullname='io.nucleo.scheduler:AScheduler/runnableElements/set' isStatic='false' isFinal='false' isOverride='false'  param_names='value' param_types='Array' param_defaults='undefined' result_type='void'>
+</method>
+<field name='_runnableElements' fullname='io.nucleo.scheduler:AScheduler/private:_runnableElements' type='Array' isStatic='false' isConst='false' >
+</field>
+<classRec name='DependencyManagedScheduler' fullname='io.nucleo.scheduler:DependencyManagedScheduler' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/scheduler/DependencyManagedScheduler.as' namespace='io.nucleo.scheduler' access='public' baseclass='io.nucleo.scheduler:AScheduler' isFinal='false' isDynamic='false' >
+</classRec>
+<method name='DependencyManagedScheduler' fullname='io.nucleo.scheduler:DependencyManagedScheduler/DependencyManagedScheduler' isStatic='false' isFinal='false' isOverride='false'  result_type='*'>
+</method>
+<method name='onRunnableComplete' fullname='io.nucleo.scheduler:DependencyManagedScheduler/onRunnableComplete' isStatic='false' isFinal='false' isOverride='true'  result_type='void'>
+</method>
+<method name='run' fullname='io.nucleo.scheduler:DependencyManagedScheduler/run' isStatic='false' isFinal='false' isOverride='true'  result_type='void'>
+</method>
+<method name='runNext' fullname='io.nucleo.scheduler:DependencyManagedScheduler/private:runNext' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+</method>
+<field name='numOfChildrenCompleted' fullname='io.nucleo.scheduler:DependencyManagedScheduler/private:numOfChildrenCompleted' type='uint' isStatic='false' isConst='false' >
+</field>
+<classRec name='ParallelScheduler' fullname='io.nucleo.scheduler:ParallelScheduler' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/scheduler/ParallelScheduler.as' namespace='io.nucleo.scheduler' access='public' baseclass='io.nucleo.scheduler:AScheduler' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+     Start executing all children (IRunnable instances) at once without waiting for any complete callback.
+     ]]></description>
+</classRec>
+<method name='ParallelScheduler' fullname='io.nucleo.scheduler:ParallelScheduler/ParallelScheduler' isStatic='false' isFinal='false' isOverride='false'  result_type='*'>
+</method>
+<method name='onRunnableComplete' fullname='io.nucleo.scheduler:ParallelScheduler/onRunnableComplete' isStatic='false' isFinal='false' isOverride='true'  result_type='void'>
+</method>
+<method name='run' fullname='io.nucleo.scheduler:ParallelScheduler/run' isStatic='false' isFinal='false' isOverride='true'  result_type='void'>
+</method>
+<field name='numOfChildrenCompleted' fullname='io.nucleo.scheduler:ParallelScheduler/protected:numOfChildrenCompleted' type='uint' isStatic='false' isConst='false' >
+</field>
+<classRec name='SequenceScheduler' fullname='io.nucleo.scheduler:SequenceScheduler' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/scheduler/SequenceScheduler.as' namespace='io.nucleo.scheduler' access='public' baseclass='io.nucleo.scheduler:AScheduler' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+     Executing all children (IRunnable instances) in a sequential order.
+     Start the next IRunnable instances after one IRunnable instances has completed.
+     ]]></description>
+</classRec>
+<method name='SequenceScheduler' fullname='io.nucleo.scheduler:SequenceScheduler/SequenceScheduler' isStatic='false' isFinal='false' isOverride='false'  result_type='*'>
+</method>
+<method name='onRunnableComplete' fullname='io.nucleo.scheduler:SequenceScheduler/onRunnableComplete' isStatic='false' isFinal='false' isOverride='true'  result_type='void'>
+</method>
+<method name='run' fullname='io.nucleo.scheduler:SequenceScheduler/run' isStatic='false' isFinal='false' isOverride='true'  result_type='void'>
+</method>
+<method name='runNext' fullname='io.nucleo.scheduler:SequenceScheduler/private:runNext' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+</method>
+<interfaceRec name='ITask' fullname='io.nucleo.scheduler.tasks:ITask' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/scheduler/tasks/ITask.as' namespace='io.nucleo.scheduler.tasks' access='public' baseClasses='io.nucleo.scheduler.runnables:IRunnable' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+     The base interface for all tasks.
+     ]]></description>
+</interfaceRec>
+<classRec name='ATask' fullname='io.nucleo.scheduler.tasks:ATask' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/scheduler/tasks/ATask.as' namespace='io.nucleo.scheduler.tasks' access='public' baseclass='io.nucleo.scheduler.runnables:ARunnable' interfaces='io.nucleo.scheduler.tasks:ITask' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+     The base class for all tasks.
+     ]]></description>
+</classRec>
+<method name='ATask' fullname='io.nucleo.scheduler.tasks:ATask/ATask' isStatic='false' isFinal='false' isOverride='false'  result_type='*'>
+</method>
+<classRec name='ADependencyManagedTask' fullname='io.nucleo.scheduler.tasks:ADependencyManagedTask' sourcefile='/Users/manfredkarrer/Documents/WS_CMC_multi_account/nucleo_io/src/io/nucleo/scheduler/tasks/ADependencyManagedTask.as' namespace='io.nucleo.scheduler.tasks' access='public' baseclass='io.nucleo.scheduler.tasks:ATask' isFinal='false' isDynamic='false' >
+<description><![CDATA[
+     The base class for all tasks using a IPropertyProviderModel instance as a shared model.
+     ]]></description>
+</classRec>
+<method name='ADependencyManagedTask' fullname='io.nucleo.scheduler.tasks:ADependencyManagedTask/ADependencyManagedTask' isStatic='false' isFinal='false' isOverride='false'  result_type='*'>
+</method>
+<method name='areAllDependenciesAvailable' fullname='io.nucleo.scheduler.tasks:ADependencyManagedTask/scheduler_internal:areAllDependenciesAvailable' isStatic='false' isFinal='false' isOverride='false'  result_type='Boolean'>
+</method>
+<method name='initReadDependencies' fullname='io.nucleo.scheduler.tasks:ADependencyManagedTask/protected:initReadDependencies' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+<description><![CDATA[
+         To be overwritten in subclasses
+         Used to read the needed data objects for the task.
+         Typically stored as instance variable in the task.
+         ]]></description>
+</method>
+<method name='read' fullname='io.nucleo.scheduler.tasks:ADependencyManagedTask/protected:read' isStatic='false' isFinal='true' isOverride='false'  param_names='key' param_types='Object' param_defaults='undefined' result_type='*'>
+</method>
+<method name='setModel' fullname='io.nucleo.scheduler.tasks:ADependencyManagedTask/setModel' isStatic='false' isFinal='false' isOverride='true'  param_names='model' param_types='Object' param_defaults='undefined' result_type='void'>
+<description><![CDATA[
+         
+         
+                  ]]></description>
+<param><![CDATA[model             The model used as shared data storage between the tasks.
+         ]]></param>
+</method>
+<method name='setup' fullname='io.nucleo.scheduler.tasks:ADependencyManagedTask/scheduler_internal:setup' isStatic='false' isFinal='false' isOverride='false'  result_type='void'>
+</method>
+<method name='write' fullname='io.nucleo.scheduler.tasks:ADependencyManagedTask/protected:write' isStatic='false' isFinal='true' isOverride='false'  param_names='key;value' param_types='Object;Object' param_defaults='undefined;undefined' result_type='void'>
+</method>
+<field name='propertyProviderModel' fullname='io.nucleo.scheduler.tasks:ADependencyManagedTask/private:propertyProviderModel' type='io.nucleo.scheduler.model:IPropertyProviderModel' isStatic='false' isConst='false' >
+</field>
+<field name='readDependencyKeys' fullname='io.nucleo.scheduler.tasks:ADependencyManagedTask/private:readDependencyKeys' type='Array' isStatic='false' isConst='false' defaultValue='unknown' >
+</field>
+</asdoc>

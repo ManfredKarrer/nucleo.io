@@ -1,0 +1,2099 @@
+<asdoc build="asd3_0_b2_1">
+   <link rel="stylesheet" href="style.css" type="text/css"/>
+   <packages>
+      <asPackage name="io.nucleo.scheduler">
+         <classes>
+            <asClass name="SequenceScheduler" type="class" fullname="io.nucleo.scheduler:SequenceScheduler" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.scheduler" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <description><![CDATA[
+     Executing all children (IRunnable instances) in a sequential order.
+     Start the next IRunnable instances after one IRunnable instances has completed.
+     ]]></description>
+               <shortDescription><![CDATA[
+     Executing all children (IRunnable instances) in a sequential order.]]></shortDescription>
+               <versions/>
+               <author/>
+               <asAncestors>
+                  <asAncestor>
+                     <classRef name="AScheduler" fullName="io.nucleo.scheduler:AScheduler" packageName="io.nucleo.scheduler" relativePath="AScheduler.html"/>
+                     <fields>
+                        <field name="runnableElements" fullname="io.nucleo.scheduler:AScheduler/runnableElements/get" accessLevel="public" isConst="false" isStatic="false" type="Array" inheritDoc="false"/>
+                     </fields>
+                     <methods>
+                        <method name="destroy" fullname="io.nucleo.scheduler:AScheduler/protected:destroy" accessLevel="protected" result_type="void" isFinal="false" isOverride="true" isStatic="false" inheritDoc="false"/>
+                        <method name="onRunnableFault" fullname="io.nucleo.scheduler:AScheduler/onRunnableFault" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <params>
+                              <param name="runnableFault" type="io.nucleo.scheduler.runnables:RunnableFault">
+                                 <classRef name="RunnableFault" fullName="io.nucleo.scheduler.runnables:RunnableFault" packageName="io.nucleo.scheduler.runnables" relativePath="runnables/RunnableFault.html"/>
+                              </param>
+                           </params>
+                        </method>
+                     </methods>
+                  </asAncestor>
+                  <asAncestor>
+                     <classRef name="ARunnable" fullName="io.nucleo.scheduler.runnables:ARunnable" packageName="io.nucleo.scheduler.runnables" relativePath="runnables/ARunnable.html"/>
+                     <fields>
+                        <field name="isFailed" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:isFailed" accessLevel="protected" type="Boolean" isConst="false" isStatic="false"/>
+                        <field name="logTasksOnly" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:logTasksOnly" accessLevel="protected" type="Boolean" isConst="false" isStatic="false"/>
+                        <field name="logger" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:logger" accessLevel="protected" type="mx.logging:ILogger" isConst="false" isStatic="false"/>
+                        <field name="model" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:model" accessLevel="protected" type="Object" isConst="false" isStatic="false"/>
+                        <field name="observer" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:observer" accessLevel="protected" type="io.nucleo.scheduler.runnables:IRunnableObserver" isConst="false" isStatic="false">
+                           <classRef name="IRunnableObserver" fullName="io.nucleo.scheduler.runnables:IRunnableObserver" packageName="io.nucleo.scheduler.runnables" relativePath="runnables/IRunnableObserver.html"/>
+                        </field>
+                        <field name="startTime" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:startTime" accessLevel="protected" type="int" isConst="false" isStatic="false"/>
+                     </fields>
+                     <methods>
+                        <method name="complete" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:complete" accessLevel="protected" result_type="void" isFinal="true" isOverride="false" isStatic="false" inheritDoc="false"/>
+                        <method name="failed" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:failed" accessLevel="protected" result_type="void" isFinal="true" isOverride="false" isStatic="false" inheritDoc="false">
+                           <params>
+                              <param name="fault" type="Object"/>
+                           </params>
+                        </method>
+                        <method name="setLogger" fullname="io.nucleo.scheduler.runnables:ARunnable/setLogger" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         
+                  ]]></shortDescription>
+                           <params>
+                              <param name="logger" type="mx.logging:ILogger"/>
+                              <param name="logTasksOnly" type="Boolean" default="true"/>
+                           </params>
+                        </method>
+                        <method name="setModel" fullname="io.nucleo.scheduler.runnables:ARunnable/setModel" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         
+                  ]]></shortDescription>
+                           <params>
+                              <param name="model" type="Object"/>
+                           </params>
+                        </method>
+                        <method name="setObserver" fullname="io.nucleo.scheduler.runnables:ARunnable/setObserver" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         
+                  ]]></shortDescription>
+                           <params>
+                              <param name="observer" type="io.nucleo.scheduler.runnables:IRunnableObserver">
+                                 <classRef name="IRunnableObserver" fullName="io.nucleo.scheduler.runnables:IRunnableObserver" packageName="io.nucleo.scheduler.runnables" relativePath="runnables/IRunnableObserver.html"/>
+                              </param>
+                           </params>
+                        </method>
+                     </methods>
+                  </asAncestor>
+               </asAncestors>
+               <constructors>
+                  <constructor name="SequenceScheduler" fullname="io.nucleo.scheduler:SequenceScheduler/SequenceScheduler" accessLevel="public" result_type="*" inheritDoc="false">
+                     <versions/>
+                     <result type="*"/>
+                  </constructor>
+               </constructors>
+               <methods>
+                  <method name="onRunnableComplete" fullname="io.nucleo.scheduler:SequenceScheduler/onRunnableComplete" accessLevel="public" result_type="void" isFinal="false" isOverride="true" isStatic="false" inheritDoc="false">
+                     <versions/>
+                     <result type="void"/>
+                  </method>
+                  <method name="run" fullname="io.nucleo.scheduler:SequenceScheduler/run" accessLevel="public" result_type="void" isFinal="false" isOverride="true" isStatic="false" inheritDoc="false">
+                     <versions/>
+                     <result type="void"/>
+                  </method>
+               </methods>
+            </asClass>
+            <asClass name="IScheduler" type="interface" fullname="io.nucleo.scheduler:IScheduler" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.scheduler" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <versions/>
+               <author/>
+               <implementers>
+                  <classRef name="AScheduler" fullName="io.nucleo.scheduler:AScheduler" packageName="io.nucleo.scheduler" relativePath="../scheduler/AScheduler.html"/>
+               </implementers>
+               <asAncestors>
+                  <asAncestor>
+                     <classRef name="IRunnable" fullName="io.nucleo.scheduler.runnables:IRunnable" packageName="io.nucleo.scheduler.runnables" relativePath="runnables/IRunnable.html"/>
+                     <methods>
+                        <method name="run" fullname="io.nucleo.scheduler.runnables:IRunnable/io.nucleo.scheduler.runnables:IRunnable:run" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         Starts the execution.]]></shortDescription>
+                        </method>
+                        <method name="setLogger" fullname="io.nucleo.scheduler.runnables:IRunnable/io.nucleo.scheduler.runnables:IRunnable:setLogger" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+                  ]]></shortDescription>
+                           <params>
+                              <param name="logger" type="mx.logging:ILogger"/>
+                              <param name="logTasksOnly" type="Boolean" default="true"/>
+                           </params>
+                        </method>
+                        <method name="setModel" fullname="io.nucleo.scheduler.runnables:IRunnable/io.nucleo.scheduler.runnables:IRunnable:setModel" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+                  ]]></shortDescription>
+                           <params>
+                              <param name="model" type="Object"/>
+                           </params>
+                        </method>
+                        <method name="setObserver" fullname="io.nucleo.scheduler.runnables:IRunnable/io.nucleo.scheduler.runnables:IRunnable:setObserver" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+                  ]]></shortDescription>
+                           <params>
+                              <param name="scheduler" type="io.nucleo.scheduler.runnables:IRunnableObserver">
+                                 <classRef name="IRunnableObserver" fullName="io.nucleo.scheduler.runnables:IRunnableObserver" packageName="io.nucleo.scheduler.runnables" relativePath="runnables/IRunnableObserver.html"/>
+                              </param>
+                           </params>
+                        </method>
+                     </methods>
+                  </asAncestor>
+               </asAncestors>
+               <fields>
+                  <field name="runnableElements" fullname="io.nucleo.scheduler:IScheduler/io.nucleo.scheduler:IScheduler:runnableElements/get" accessLevel="public" isConst="false" isStatic="false" type="Array" inheritDoc="false" only="read-write">
+                     <description><![CDATA[
+         ]]></description>
+                     <shortDescription><![CDATA[
+         ]]></shortDescription>
+                     <versions/>
+                  </field>
+               </fields>
+            </asClass>
+            <asClass name="AScheduler" type="class" fullname="io.nucleo.scheduler:AScheduler" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.scheduler" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <versions/>
+               <author/>
+               <defaultProperty name="runnableElements"/>
+               <asDecendants>
+                  <classRef name="SequenceScheduler" fullName="io.nucleo.scheduler:SequenceScheduler" packageName="io.nucleo.scheduler" relativePath="../scheduler/SequenceScheduler.html"/>
+                  <classRef name="ParallelScheduler" fullName="io.nucleo.scheduler:ParallelScheduler" packageName="io.nucleo.scheduler" relativePath="../scheduler/ParallelScheduler.html"/>
+                  <classRef name="DependencyManagedScheduler" fullName="io.nucleo.scheduler:DependencyManagedScheduler" packageName="io.nucleo.scheduler" relativePath="../scheduler/DependencyManagedScheduler.html"/>
+               </asDecendants>
+               <asAncestors>
+                  <asAncestor>
+                     <classRef name="ARunnable" fullName="io.nucleo.scheduler.runnables:ARunnable" packageName="io.nucleo.scheduler.runnables" relativePath="runnables/ARunnable.html"/>
+                     <fields>
+                        <field name="isFailed" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:isFailed" accessLevel="protected" type="Boolean" isConst="false" isStatic="false"/>
+                        <field name="logTasksOnly" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:logTasksOnly" accessLevel="protected" type="Boolean" isConst="false" isStatic="false"/>
+                        <field name="logger" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:logger" accessLevel="protected" type="mx.logging:ILogger" isConst="false" isStatic="false"/>
+                        <field name="model" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:model" accessLevel="protected" type="Object" isConst="false" isStatic="false"/>
+                        <field name="observer" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:observer" accessLevel="protected" type="io.nucleo.scheduler.runnables:IRunnableObserver" isConst="false" isStatic="false">
+                           <classRef name="IRunnableObserver" fullName="io.nucleo.scheduler.runnables:IRunnableObserver" packageName="io.nucleo.scheduler.runnables" relativePath="runnables/IRunnableObserver.html"/>
+                        </field>
+                        <field name="startTime" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:startTime" accessLevel="protected" type="int" isConst="false" isStatic="false"/>
+                     </fields>
+                     <methods>
+                        <method name="complete" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:complete" accessLevel="protected" result_type="void" isFinal="true" isOverride="false" isStatic="false" inheritDoc="false"/>
+                        <method name="failed" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:failed" accessLevel="protected" result_type="void" isFinal="true" isOverride="false" isStatic="false" inheritDoc="false">
+                           <params>
+                              <param name="fault" type="Object"/>
+                           </params>
+                        </method>
+                        <method name="run" fullname="io.nucleo.scheduler.runnables:ARunnable/run" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         
+         Starts the execution.]]></shortDescription>
+                        </method>
+                        <method name="setLogger" fullname="io.nucleo.scheduler.runnables:ARunnable/setLogger" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         
+                  ]]></shortDescription>
+                           <params>
+                              <param name="logger" type="mx.logging:ILogger"/>
+                              <param name="logTasksOnly" type="Boolean" default="true"/>
+                           </params>
+                        </method>
+                        <method name="setModel" fullname="io.nucleo.scheduler.runnables:ARunnable/setModel" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         
+                  ]]></shortDescription>
+                           <params>
+                              <param name="model" type="Object"/>
+                           </params>
+                        </method>
+                        <method name="setObserver" fullname="io.nucleo.scheduler.runnables:ARunnable/setObserver" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         
+                  ]]></shortDescription>
+                           <params>
+                              <param name="observer" type="io.nucleo.scheduler.runnables:IRunnableObserver">
+                                 <classRef name="IRunnableObserver" fullName="io.nucleo.scheduler.runnables:IRunnableObserver" packageName="io.nucleo.scheduler.runnables" relativePath="runnables/IRunnableObserver.html"/>
+                              </param>
+                           </params>
+                        </method>
+                     </methods>
+                  </asAncestor>
+               </asAncestors>
+               <asImplements>
+                  <asAncestor>
+                     <classRef name="IScheduler" fullName="io.nucleo.scheduler:IScheduler" packageName="io.nucleo.scheduler" relativePath="IScheduler.html"/>
+                  </asAncestor>
+                  <asAncestor>
+                     <classRef name="IRunnableObserver" fullName="io.nucleo.scheduler.runnables:IRunnableObserver" packageName="io.nucleo.scheduler.runnables" relativePath="runnables/IRunnableObserver.html"/>
+                     <methods>
+                        <method name="onRunnableComplete" fullname="io.nucleo.scheduler.runnables:IRunnableObserver/io.nucleo.scheduler.runnables:IRunnableObserver:onRunnableComplete" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         Called when a IRunnable object is completed.]]></shortDescription>
+                        </method>
+                        <method name="onRunnableFault" fullname="io.nucleo.scheduler.runnables:IRunnableObserver/io.nucleo.scheduler.runnables:IRunnableObserver:onRunnableFault" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         Called when a IRunnable object has failed.]]></shortDescription>
+                           <params>
+                              <param name="runnableFault" type="io.nucleo.scheduler.runnables:RunnableFault">
+                                 <classRef name="RunnableFault" fullName="io.nucleo.scheduler.runnables:RunnableFault" packageName="io.nucleo.scheduler.runnables" relativePath="runnables/RunnableFault.html"/>
+                              </param>
+                           </params>
+                        </method>
+                     </methods>
+                  </asAncestor>
+               </asImplements>
+               <constructors>
+                  <constructor name="AScheduler" fullname="io.nucleo.scheduler:AScheduler/AScheduler" accessLevel="public" result_type="*" inheritDoc="false">
+                     <versions/>
+                     <result type="*"/>
+                  </constructor>
+               </constructors>
+               <methods>
+                  <method name="destroy" fullname="io.nucleo.scheduler:AScheduler/protected:destroy" accessLevel="protected" result_type="void" isFinal="false" isOverride="true" isStatic="false" inheritDoc="false">
+                     <versions/>
+                     <result type="void"/>
+                  </method>
+                  <method name="onRunnableComplete" fullname="io.nucleo.scheduler:AScheduler/onRunnableComplete" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <versions/>
+                     <result type="void"/>
+                  </method>
+                  <method name="onRunnableFault" fullname="io.nucleo.scheduler:AScheduler/onRunnableFault" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <versions/>
+                     <result type="void"/>
+                     <params>
+                        <param name="runnableFault" type="io.nucleo.scheduler.runnables:RunnableFault">
+                           <classRef name="RunnableFault" fullName="io.nucleo.scheduler.runnables:RunnableFault" packageName="io.nucleo.scheduler.runnables" relativePath="runnables/RunnableFault.html"/>
+                        </param>
+                     </params>
+                  </method>
+               </methods>
+               <fields>
+                  <field name="runnableElements" fullname="io.nucleo.scheduler:AScheduler/runnableElements/get" accessLevel="public" isConst="false" isStatic="false" type="Array" inheritDoc="false" only="read-write">
+                     <versions/>
+                  </field>
+               </fields>
+            </asClass>
+            <asClass name="ParallelScheduler" type="class" fullname="io.nucleo.scheduler:ParallelScheduler" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.scheduler" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <description><![CDATA[
+     Start executing all children (IRunnable instances) at once without waiting for any complete callback.
+     ]]></description>
+               <shortDescription><![CDATA[
+     Start executing all children (IRunnable instances) at once without waiting for any complete callback.]]></shortDescription>
+               <versions/>
+               <author/>
+               <asAncestors>
+                  <asAncestor>
+                     <classRef name="AScheduler" fullName="io.nucleo.scheduler:AScheduler" packageName="io.nucleo.scheduler" relativePath="AScheduler.html"/>
+                     <fields>
+                        <field name="runnableElements" fullname="io.nucleo.scheduler:AScheduler/runnableElements/get" accessLevel="public" isConst="false" isStatic="false" type="Array" inheritDoc="false"/>
+                     </fields>
+                     <methods>
+                        <method name="destroy" fullname="io.nucleo.scheduler:AScheduler/protected:destroy" accessLevel="protected" result_type="void" isFinal="false" isOverride="true" isStatic="false" inheritDoc="false"/>
+                        <method name="onRunnableFault" fullname="io.nucleo.scheduler:AScheduler/onRunnableFault" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <params>
+                              <param name="runnableFault" type="io.nucleo.scheduler.runnables:RunnableFault">
+                                 <classRef name="RunnableFault" fullName="io.nucleo.scheduler.runnables:RunnableFault" packageName="io.nucleo.scheduler.runnables" relativePath="runnables/RunnableFault.html"/>
+                              </param>
+                           </params>
+                        </method>
+                     </methods>
+                  </asAncestor>
+                  <asAncestor>
+                     <classRef name="ARunnable" fullName="io.nucleo.scheduler.runnables:ARunnable" packageName="io.nucleo.scheduler.runnables" relativePath="runnables/ARunnable.html"/>
+                     <fields>
+                        <field name="isFailed" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:isFailed" accessLevel="protected" type="Boolean" isConst="false" isStatic="false"/>
+                        <field name="logTasksOnly" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:logTasksOnly" accessLevel="protected" type="Boolean" isConst="false" isStatic="false"/>
+                        <field name="logger" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:logger" accessLevel="protected" type="mx.logging:ILogger" isConst="false" isStatic="false"/>
+                        <field name="model" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:model" accessLevel="protected" type="Object" isConst="false" isStatic="false"/>
+                        <field name="observer" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:observer" accessLevel="protected" type="io.nucleo.scheduler.runnables:IRunnableObserver" isConst="false" isStatic="false">
+                           <classRef name="IRunnableObserver" fullName="io.nucleo.scheduler.runnables:IRunnableObserver" packageName="io.nucleo.scheduler.runnables" relativePath="runnables/IRunnableObserver.html"/>
+                        </field>
+                        <field name="startTime" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:startTime" accessLevel="protected" type="int" isConst="false" isStatic="false"/>
+                     </fields>
+                     <methods>
+                        <method name="complete" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:complete" accessLevel="protected" result_type="void" isFinal="true" isOverride="false" isStatic="false" inheritDoc="false"/>
+                        <method name="failed" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:failed" accessLevel="protected" result_type="void" isFinal="true" isOverride="false" isStatic="false" inheritDoc="false">
+                           <params>
+                              <param name="fault" type="Object"/>
+                           </params>
+                        </method>
+                        <method name="setLogger" fullname="io.nucleo.scheduler.runnables:ARunnable/setLogger" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         
+                  ]]></shortDescription>
+                           <params>
+                              <param name="logger" type="mx.logging:ILogger"/>
+                              <param name="logTasksOnly" type="Boolean" default="true"/>
+                           </params>
+                        </method>
+                        <method name="setModel" fullname="io.nucleo.scheduler.runnables:ARunnable/setModel" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         
+                  ]]></shortDescription>
+                           <params>
+                              <param name="model" type="Object"/>
+                           </params>
+                        </method>
+                        <method name="setObserver" fullname="io.nucleo.scheduler.runnables:ARunnable/setObserver" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         
+                  ]]></shortDescription>
+                           <params>
+                              <param name="observer" type="io.nucleo.scheduler.runnables:IRunnableObserver">
+                                 <classRef name="IRunnableObserver" fullName="io.nucleo.scheduler.runnables:IRunnableObserver" packageName="io.nucleo.scheduler.runnables" relativePath="runnables/IRunnableObserver.html"/>
+                              </param>
+                           </params>
+                        </method>
+                     </methods>
+                  </asAncestor>
+               </asAncestors>
+               <constructors>
+                  <constructor name="ParallelScheduler" fullname="io.nucleo.scheduler:ParallelScheduler/ParallelScheduler" accessLevel="public" result_type="*" inheritDoc="false">
+                     <versions/>
+                     <result type="*"/>
+                  </constructor>
+               </constructors>
+               <methods>
+                  <method name="onRunnableComplete" fullname="io.nucleo.scheduler:ParallelScheduler/onRunnableComplete" accessLevel="public" result_type="void" isFinal="false" isOverride="true" isStatic="false" inheritDoc="false">
+                     <versions/>
+                     <result type="void"/>
+                  </method>
+                  <method name="run" fullname="io.nucleo.scheduler:ParallelScheduler/run" accessLevel="public" result_type="void" isFinal="false" isOverride="true" isStatic="false" inheritDoc="false">
+                     <versions/>
+                     <result type="void"/>
+                  </method>
+               </methods>
+               <fields>
+                  <field name="numOfChildrenCompleted" fullname="io.nucleo.scheduler:ParallelScheduler/protected:numOfChildrenCompleted" accessLevel="protected" type="uint" isConst="false" isStatic="false">
+                     <versions/>
+                  </field>
+               </fields>
+            </asClass>
+            <asClass name="DependencyManagedScheduler" type="class" fullname="io.nucleo.scheduler:DependencyManagedScheduler" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.scheduler" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <versions/>
+               <author/>
+               <asAncestors>
+                  <asAncestor>
+                     <classRef name="AScheduler" fullName="io.nucleo.scheduler:AScheduler" packageName="io.nucleo.scheduler" relativePath="AScheduler.html"/>
+                     <fields>
+                        <field name="runnableElements" fullname="io.nucleo.scheduler:AScheduler/runnableElements/get" accessLevel="public" isConst="false" isStatic="false" type="Array" inheritDoc="false"/>
+                     </fields>
+                     <methods>
+                        <method name="destroy" fullname="io.nucleo.scheduler:AScheduler/protected:destroy" accessLevel="protected" result_type="void" isFinal="false" isOverride="true" isStatic="false" inheritDoc="false"/>
+                        <method name="onRunnableFault" fullname="io.nucleo.scheduler:AScheduler/onRunnableFault" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <params>
+                              <param name="runnableFault" type="io.nucleo.scheduler.runnables:RunnableFault">
+                                 <classRef name="RunnableFault" fullName="io.nucleo.scheduler.runnables:RunnableFault" packageName="io.nucleo.scheduler.runnables" relativePath="runnables/RunnableFault.html"/>
+                              </param>
+                           </params>
+                        </method>
+                     </methods>
+                  </asAncestor>
+                  <asAncestor>
+                     <classRef name="ARunnable" fullName="io.nucleo.scheduler.runnables:ARunnable" packageName="io.nucleo.scheduler.runnables" relativePath="runnables/ARunnable.html"/>
+                     <fields>
+                        <field name="isFailed" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:isFailed" accessLevel="protected" type="Boolean" isConst="false" isStatic="false"/>
+                        <field name="logTasksOnly" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:logTasksOnly" accessLevel="protected" type="Boolean" isConst="false" isStatic="false"/>
+                        <field name="logger" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:logger" accessLevel="protected" type="mx.logging:ILogger" isConst="false" isStatic="false"/>
+                        <field name="model" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:model" accessLevel="protected" type="Object" isConst="false" isStatic="false"/>
+                        <field name="observer" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:observer" accessLevel="protected" type="io.nucleo.scheduler.runnables:IRunnableObserver" isConst="false" isStatic="false">
+                           <classRef name="IRunnableObserver" fullName="io.nucleo.scheduler.runnables:IRunnableObserver" packageName="io.nucleo.scheduler.runnables" relativePath="runnables/IRunnableObserver.html"/>
+                        </field>
+                        <field name="startTime" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:startTime" accessLevel="protected" type="int" isConst="false" isStatic="false"/>
+                     </fields>
+                     <methods>
+                        <method name="complete" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:complete" accessLevel="protected" result_type="void" isFinal="true" isOverride="false" isStatic="false" inheritDoc="false"/>
+                        <method name="failed" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:failed" accessLevel="protected" result_type="void" isFinal="true" isOverride="false" isStatic="false" inheritDoc="false">
+                           <params>
+                              <param name="fault" type="Object"/>
+                           </params>
+                        </method>
+                        <method name="setLogger" fullname="io.nucleo.scheduler.runnables:ARunnable/setLogger" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         
+                  ]]></shortDescription>
+                           <params>
+                              <param name="logger" type="mx.logging:ILogger"/>
+                              <param name="logTasksOnly" type="Boolean" default="true"/>
+                           </params>
+                        </method>
+                        <method name="setModel" fullname="io.nucleo.scheduler.runnables:ARunnable/setModel" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         
+                  ]]></shortDescription>
+                           <params>
+                              <param name="model" type="Object"/>
+                           </params>
+                        </method>
+                        <method name="setObserver" fullname="io.nucleo.scheduler.runnables:ARunnable/setObserver" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         
+                  ]]></shortDescription>
+                           <params>
+                              <param name="observer" type="io.nucleo.scheduler.runnables:IRunnableObserver">
+                                 <classRef name="IRunnableObserver" fullName="io.nucleo.scheduler.runnables:IRunnableObserver" packageName="io.nucleo.scheduler.runnables" relativePath="runnables/IRunnableObserver.html"/>
+                              </param>
+                           </params>
+                        </method>
+                     </methods>
+                  </asAncestor>
+               </asAncestors>
+               <constructors>
+                  <constructor name="DependencyManagedScheduler" fullname="io.nucleo.scheduler:DependencyManagedScheduler/DependencyManagedScheduler" accessLevel="public" result_type="*" inheritDoc="false">
+                     <versions/>
+                     <result type="*"/>
+                  </constructor>
+               </constructors>
+               <methods>
+                  <method name="onRunnableComplete" fullname="io.nucleo.scheduler:DependencyManagedScheduler/onRunnableComplete" accessLevel="public" result_type="void" isFinal="false" isOverride="true" isStatic="false" inheritDoc="false">
+                     <versions/>
+                     <result type="void"/>
+                  </method>
+                  <method name="run" fullname="io.nucleo.scheduler:DependencyManagedScheduler/run" accessLevel="public" result_type="void" isFinal="false" isOverride="true" isStatic="false" inheritDoc="false">
+                     <versions/>
+                     <result type="void"/>
+                  </method>
+               </methods>
+            </asClass>
+         </classes>
+      </asPackage>
+      <asPackage name="io.nucleo.inject">
+         <classes>
+            <asClass name="IMappingInfo" type="interface" fullname="io.nucleo.inject:IMappingInfo" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.inject" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <description><![CDATA[
+     IMappingInfo is only used internally.
+     ]]></description>
+               <shortDescription><![CDATA[
+     IMappingInfo is only used internally.]]></shortDescription>
+               <versions/>
+               <author/>
+               <implementers>
+                  <classRef name="Mapping" fullName="io.nucleo.inject:Mapping" packageName="io.nucleo.inject" relativePath="../inject/Mapping.html"/>
+               </implementers>
+               <asAncestors/>
+            </asClass>
+            <asClass name="Injector" type="class" fullname="io.nucleo.inject:Injector" accessLevel="public" isFinal="true" isDynamic="false" packageName="io.nucleo.inject" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <versions/>
+               <author/>
+               <asAncestors/>
+               <asImplements>
+                  <asAncestor>
+                     <classRef name="IInjector" fullName="io.nucleo.inject:IInjector" packageName="io.nucleo.inject" relativePath="IInjector.html"/>
+                     <methods>
+                        <method name="destroy" fullname="io.nucleo.inject:IInjector/io.nucleo.inject:IInjector:destroy" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+     Cleanup all resources.]]></shortDescription>
+                        </method>
+                        <method name="getObject" fullname="io.nucleo.inject:IInjector/io.nucleo.inject:IInjector:getObject" accessLevel="public" result_type="*" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+          ]]></shortDescription>
+                           <params>
+                              <param name="mappingKey" type="Object"/>
+                           </params>
+                        </method>
+                     </methods>
+                  </asAncestor>
+               </asImplements>
+               <methods>
+                  <method name="destroy" fullname="io.nucleo.inject:Injector/destroy" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         
+     Cleanup all resources.
+     ]]></description>
+                     <shortDescription><![CDATA[
+         
+     Cleanup all resources.]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                  </method>
+                  <method name="getObject" fullname="io.nucleo.inject:Injector/getObject" accessLevel="public" result_type="*" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         
+          ]]></description>
+                     <shortDescription><![CDATA[
+         
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="*"><![CDATA[     ]]></result>
+                     <params>
+                        <param name="mappingKey" type="Object">
+                           <description><![CDATA[       The mapping key to get the associated object.
+     ]]></description>
+                        </param>
+                     </params>
+                  </method>
+               </methods>
+            </asClass>
+            <asClass name="Mapping" type="class" fullname="io.nucleo.inject:Mapping" accessLevel="public" isFinal="true" isDynamic="false" packageName="io.nucleo.inject" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <versions/>
+               <author/>
+               <asAncestors/>
+               <asImplements>
+                  <asAncestor>
+                     <classRef name="IMapping" fullName="io.nucleo.inject:IMapping" packageName="io.nucleo.inject" relativePath="IMapping.html"/>
+                     <methods>
+                        <method name="toClass" fullname="io.nucleo.inject:IMapping/io.nucleo.inject:IMapping:toClass" accessLevel="public" result_type="io.nucleo.inject:CreationPolicy" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+          ]]></shortDescription>
+                           <result type="io.nucleo.inject:CreationPolicy">
+                              <classRef name="CreationPolicy" fullName="io.nucleo.inject:CreationPolicy" packageName="io.nucleo.inject" relativePath="../inject/CreationPolicy.html"/>
+                           </result>
+                           <params>
+                              <param name="classDefinition" type="Class"/>
+                           </params>
+                        </method>
+                        <method name="toFactoryMethod" fullname="io.nucleo.inject:IMapping/io.nucleo.inject:IMapping:toFactoryMethod" accessLevel="public" result_type="io.nucleo.inject:CreationPolicy" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+          ]]></shortDescription>
+                           <result type="io.nucleo.inject:CreationPolicy">
+                              <classRef name="CreationPolicy" fullName="io.nucleo.inject:CreationPolicy" packageName="io.nucleo.inject" relativePath="../inject/CreationPolicy.html"/>
+                           </result>
+                           <params>
+                              <param name="factoryMethod" type="Function"/>
+                           </params>
+                        </method>
+                        <method name="toInstance" fullname="io.nucleo.inject:IMapping/io.nucleo.inject:IMapping:toInstance" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+          ]]></shortDescription>
+                           <params>
+                              <param name="instance" type="Object"/>
+                           </params>
+                        </method>
+                        <method name="toOnDemandFactory" fullname="io.nucleo.inject:IMapping/io.nucleo.inject:IMapping:toOnDemandFactory" accessLevel="public" result_type="io.nucleo.inject:CreationPolicy" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+          ]]></shortDescription>
+                           <result type="io.nucleo.inject:CreationPolicy">
+                              <classRef name="CreationPolicy" fullName="io.nucleo.inject:CreationPolicy" packageName="io.nucleo.inject" relativePath="../inject/CreationPolicy.html"/>
+                           </result>
+                           <params>
+                              <param name="onDemandFactory" type="Class"/>
+                           </params>
+                        </method>
+                        <method name="toProvider" fullname="io.nucleo.inject:IMapping/io.nucleo.inject:IMapping:toProvider" accessLevel="public" result_type="io.nucleo.inject:CreationPolicy" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+          ]]></shortDescription>
+                           <result type="io.nucleo.inject:CreationPolicy">
+                              <classRef name="CreationPolicy" fullName="io.nucleo.inject:CreationPolicy" packageName="io.nucleo.inject" relativePath="../inject/CreationPolicy.html"/>
+                           </result>
+                           <params>
+                              <param name="providerClass" type="Class"/>
+                           </params>
+                        </method>
+                     </methods>
+                  </asAncestor>
+                  <asAncestor>
+                     <classRef name="IMappingInfo" fullName="io.nucleo.inject:IMappingInfo" packageName="io.nucleo.inject" relativePath="IMappingInfo.html"/>
+                  </asAncestor>
+               </asImplements>
+               <methods>
+                  <method name="toClass" fullname="io.nucleo.inject:Mapping/toClass" accessLevel="public" result_type="io.nucleo.inject:CreationPolicy" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         
+          ]]></description>
+                     <shortDescription><![CDATA[
+         
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="io.nucleo.inject:CreationPolicy">
+                        <![CDATA[     ]]>
+                        <classRef name="CreationPolicy" fullName="io.nucleo.inject:CreationPolicy" packageName="io.nucleo.inject" relativePath="../inject/CreationPolicy.html"/>
+                     </result>
+                     <params>
+                        <param name="classDefinition" type="Class">
+                           <description><![CDATA[  Class definition used for creating the target object.
+     ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="toFactoryMethod" fullname="io.nucleo.inject:Mapping/toFactoryMethod" accessLevel="public" result_type="io.nucleo.inject:CreationPolicy" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         
+          ]]></description>
+                     <shortDescription><![CDATA[
+         
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="io.nucleo.inject:CreationPolicy">
+                        <![CDATA[     ]]>
+                        <classRef name="CreationPolicy" fullName="io.nucleo.inject:CreationPolicy" packageName="io.nucleo.inject" relativePath="../inject/CreationPolicy.html"/>
+                     </result>
+                     <params>
+                        <param name="factoryMethod" type="Function">
+                           <description><![CDATA[    Factory method used for custom object construction. Similar to the solution with
+                              IProvider but there is no extra class used, only a method in the config for the
+                              construction of the object.
+     ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="toInstance" fullname="io.nucleo.inject:Mapping/toInstance" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         
+          ]]></description>
+                     <shortDescription><![CDATA[
+         
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                     <params>
+                        <param name="instance" type="Object">
+                           <description><![CDATA[     Target instance of mapping.
+     ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="toOnDemandFactory" fullname="io.nucleo.inject:Mapping/toOnDemandFactory" accessLevel="public" result_type="io.nucleo.inject:CreationPolicy" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         
+          ]]></description>
+                     <shortDescription><![CDATA[
+         
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="io.nucleo.inject:CreationPolicy">
+                        <![CDATA[     ]]>
+                        <classRef name="CreationPolicy" fullName="io.nucleo.inject:CreationPolicy" packageName="io.nucleo.inject" relativePath="../inject/CreationPolicy.html"/>
+                     </result>
+                     <params>
+                        <param name="onDemandFactory" type="Class">
+                           <description><![CDATA[      On demand factory of type IOnDemandFactory used for on demand object construction.
+                                  You can inject this factory and the actual object creation will be triggered when
+                                  the getObject() method is called.
+     ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="toProvider" fullname="io.nucleo.inject:Mapping/toProvider" accessLevel="public" result_type="io.nucleo.inject:CreationPolicy" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         
+          ]]></description>
+                     <shortDescription><![CDATA[
+         
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="io.nucleo.inject:CreationPolicy">
+                        <![CDATA[     ]]>
+                        <classRef name="CreationPolicy" fullName="io.nucleo.inject:CreationPolicy" packageName="io.nucleo.inject" relativePath="../inject/CreationPolicy.html"/>
+                     </result>
+                     <params>
+                        <param name="providerClass" type="Class">
+                           <description><![CDATA[    Provider class of type IProvider to be used for custom object construction.
+                              Is needed for 3rd party Classes or for more complex construction setup.
+     ]]></description>
+                        </param>
+                     </params>
+                  </method>
+               </methods>
+            </asClass>
+            <asClass name="IProvider" type="interface" fullname="io.nucleo.inject:IProvider" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.inject" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <versions/>
+               <author/>
+               <asAncestors/>
+               <methods>
+                  <method name="getObject" fullname="io.nucleo.inject:IProvider/io.nucleo.inject:IProvider:getObject" accessLevel="public" result_type="Object" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+          ]]></description>
+                     <shortDescription><![CDATA[
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="Object"><![CDATA[     The object created in a customized way.
+     ]]></result>
+                  </method>
+               </methods>
+            </asClass>
+            <asClass name="IOnDemandFactory" type="interface" fullname="io.nucleo.inject:IOnDemandFactory" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.inject" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <versions/>
+               <author/>
+               <asAncestors/>
+               <methods>
+                  <method name="getObject" fullname="io.nucleo.inject:IOnDemandFactory/io.nucleo.inject:IOnDemandFactory:getObject" accessLevel="public" result_type="Object" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+          ]]></description>
+                     <shortDescription><![CDATA[
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="Object"><![CDATA[ The object created on demand when it is needed.
+     ]]></result>
+                  </method>
+               </methods>
+            </asClass>
+            <asClass name="IConfigInfo" type="interface" fullname="io.nucleo.inject:IConfigInfo" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.inject" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <description><![CDATA[
+     IConfigInfo is only used internally.
+     ]]></description>
+               <shortDescription><![CDATA[
+     IConfigInfo is only used internally.]]></shortDescription>
+               <versions/>
+               <author/>
+               <implementers>
+                  <classRef name="AConfig" fullName="io.nucleo.inject:AConfig" packageName="io.nucleo.inject" relativePath="../inject/AConfig.html"/>
+               </implementers>
+               <asAncestors/>
+            </asClass>
+            <asClass name="IConfig" type="interface" fullname="io.nucleo.inject:IConfig" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.inject" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <versions/>
+               <author/>
+               <implementers>
+                  <classRef name="AConfig" fullName="io.nucleo.inject:AConfig" packageName="io.nucleo.inject" relativePath="../inject/AConfig.html"/>
+               </implementers>
+               <asAncestors/>
+               <methods>
+                  <method name="mapClass" fullname="io.nucleo.inject:IConfig/io.nucleo.inject:IConfig:mapClass" accessLevel="public" result_type="io.nucleo.inject:IMapping" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+          ]]></description>
+                     <shortDescription><![CDATA[
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="io.nucleo.inject:IMapping">
+                        <![CDATA[     ]]>
+                        <classRef name="IMapping" fullName="io.nucleo.inject:IMapping" packageName="io.nucleo.inject" relativePath="../inject/IMapping.html"/>
+                     </result>
+                     <params>
+                        <param name="classDefinition" type="Class">
+                           <description><![CDATA[     The Class definition used as mapping key.
+     ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="mapInterface" fullname="io.nucleo.inject:IConfig/io.nucleo.inject:IConfig:mapInterface" accessLevel="public" result_type="io.nucleo.inject:IMapping" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+          ]]></description>
+                     <shortDescription><![CDATA[
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="io.nucleo.inject:IMapping">
+                        <![CDATA[     ]]>
+                        <classRef name="IMapping" fullName="io.nucleo.inject:IMapping" packageName="io.nucleo.inject" relativePath="../inject/IMapping.html"/>
+                     </result>
+                     <params>
+                        <param name="interfaceDefinition" type="Class">
+                           <description><![CDATA[  The Interface definition used as mapping key.
+     ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="mapParameterName" fullname="io.nucleo.inject:IConfig/io.nucleo.inject:IConfig:mapParameterName" accessLevel="public" result_type="io.nucleo.inject:IMapping" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+          ]]></description>
+                     <shortDescription><![CDATA[
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="io.nucleo.inject:IMapping">
+                        <![CDATA[     ]]>
+                        <classRef name="IMapping" fullName="io.nucleo.inject:IMapping" packageName="io.nucleo.inject" relativePath="../inject/IMapping.html"/>
+                     </result>
+                     <params>
+                        <param name="parameterName" type="String">
+                           <description><![CDATA[     The parameter name used as mapping key.
+     ]]></description>
+                        </param>
+                     </params>
+                  </method>
+               </methods>
+            </asClass>
+            <asClass name="AConstructorParameters" type="class" fullname="io.nucleo.inject:AConstructorParameters" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.inject" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <versions/>
+               <author/>
+               <asAncestors/>
+               <constructors>
+                  <constructor name="AConstructorParameters" fullname="io.nucleo.inject:AConstructorParameters/AConstructorParameters" accessLevel="public" result_type="*" inheritDoc="false">
+                     <versions/>
+                     <result type="*"/>
+                  </constructor>
+               </constructors>
+               <methods>
+                  <method name="config" fullname="io.nucleo.inject:AConstructorParameters/protected:config" accessLevel="protected" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+     This will be overwritten by the concrete class (auto generated).<br>
+     For example: <code>constructorParameterKeys[Client] = ["theFewSpanishWords", IBar];</code>
+     ]]></description>
+                     <shortDescription><![CDATA[
+     This will be overwritten by the concrete class (auto generated).<br>
+     For example: <code>constructorParameterKeys[Client] = ["theFewSpanishWords", IBar];</code>
+     ]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                  </method>
+               </methods>
+               <fields>
+                  <field name="constructorParameterKeys" fullname="io.nucleo.inject:AConstructorParameters/protected:constructorParameterKeys" accessLevel="protected" type="flash.utils:Dictionary" isConst="false" isStatic="false">
+                     <description><![CDATA[
+     The dictionary used to store the constructor parameter keys for a class.<br>
+     The key of the dictionary is the class for which we store the constructor parameters.<br>
+     The value is an array of constructor parameter keys.
+     ]]></description>
+                     <shortDescription><![CDATA[
+     The dictionary used to store the constructor parameter keys for a class.<br>
+     The key of the dictionary is the class for which we store the constructor parameters.<br>
+     The value is an array of constructor parameter keys.]]></shortDescription>
+                     <versions/>
+                  </field>
+               </fields>
+            </asClass>
+            <asClass name="AConfig" type="class" fullname="io.nucleo.inject:AConfig" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.inject" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <versions/>
+               <author/>
+               <asAncestors/>
+               <asImplements>
+                  <asAncestor>
+                     <classRef name="IConfig" fullName="io.nucleo.inject:IConfig" packageName="io.nucleo.inject" relativePath="IConfig.html"/>
+                     <methods>
+                        <method name="mapClass" fullname="io.nucleo.inject:IConfig/io.nucleo.inject:IConfig:mapClass" accessLevel="public" result_type="io.nucleo.inject:IMapping" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+          ]]></shortDescription>
+                           <result type="io.nucleo.inject:IMapping">
+                              <classRef name="IMapping" fullName="io.nucleo.inject:IMapping" packageName="io.nucleo.inject" relativePath="../inject/IMapping.html"/>
+                           </result>
+                           <params>
+                              <param name="classDefinition" type="Class"/>
+                           </params>
+                        </method>
+                        <method name="mapInterface" fullname="io.nucleo.inject:IConfig/io.nucleo.inject:IConfig:mapInterface" accessLevel="public" result_type="io.nucleo.inject:IMapping" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+          ]]></shortDescription>
+                           <result type="io.nucleo.inject:IMapping">
+                              <classRef name="IMapping" fullName="io.nucleo.inject:IMapping" packageName="io.nucleo.inject" relativePath="../inject/IMapping.html"/>
+                           </result>
+                           <params>
+                              <param name="interfaceDefinition" type="Class"/>
+                           </params>
+                        </method>
+                        <method name="mapParameterName" fullname="io.nucleo.inject:IConfig/io.nucleo.inject:IConfig:mapParameterName" accessLevel="public" result_type="io.nucleo.inject:IMapping" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+          ]]></shortDescription>
+                           <result type="io.nucleo.inject:IMapping">
+                              <classRef name="IMapping" fullName="io.nucleo.inject:IMapping" packageName="io.nucleo.inject" relativePath="../inject/IMapping.html"/>
+                           </result>
+                           <params>
+                              <param name="parameterName" type="String"/>
+                           </params>
+                        </method>
+                     </methods>
+                  </asAncestor>
+                  <asAncestor>
+                     <classRef name="IConfigInfo" fullName="io.nucleo.inject:IConfigInfo" packageName="io.nucleo.inject" relativePath="IConfigInfo.html"/>
+                  </asAncestor>
+               </asImplements>
+               <constructors>
+                  <constructor name="AConfig" fullname="io.nucleo.inject:AConfig/AConfig" accessLevel="public" result_type="*" inheritDoc="false">
+                     <description><![CDATA[
+                  ]]></description>
+                     <shortDescription><![CDATA[
+                  ]]></shortDescription>
+                     <versions/>
+                     <result type="*"/>
+                     <params>
+                        <param name="constructorParameters" type="io.nucleo.inject:AConstructorParameters">
+                           <classRef name="AConstructorParameters" fullName="io.nucleo.inject:AConstructorParameters" packageName="io.nucleo.inject" relativePath="AConstructorParameters.html"/>
+                           <description><![CDATA[    The concrete ConstructorParameters class.
+         ]]></description>
+                        </param>
+                     </params>
+                  </constructor>
+               </constructors>
+               <methods>
+                  <method name="mapClass" fullname="io.nucleo.inject:AConfig/mapClass" accessLevel="public" result_type="io.nucleo.inject:IMapping" isFinal="true" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         
+          ]]></description>
+                     <shortDescription><![CDATA[
+         
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="io.nucleo.inject:IMapping">
+                        <![CDATA[     ]]>
+                        <classRef name="IMapping" fullName="io.nucleo.inject:IMapping" packageName="io.nucleo.inject" relativePath="../inject/IMapping.html"/>
+                     </result>
+                     <params>
+                        <param name="classDefinition" type="Class">
+                           <description><![CDATA[     The Class definition used as mapping key.
+     ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="mapInterface" fullname="io.nucleo.inject:AConfig/mapInterface" accessLevel="public" result_type="io.nucleo.inject:IMapping" isFinal="true" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         
+          ]]></description>
+                     <shortDescription><![CDATA[
+         
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="io.nucleo.inject:IMapping">
+                        <![CDATA[     ]]>
+                        <classRef name="IMapping" fullName="io.nucleo.inject:IMapping" packageName="io.nucleo.inject" relativePath="../inject/IMapping.html"/>
+                     </result>
+                     <params>
+                        <param name="interfaceDefinition" type="Class">
+                           <description><![CDATA[  The Interface definition used as mapping key.
+     ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="mapParameterName" fullname="io.nucleo.inject:AConfig/mapParameterName" accessLevel="public" result_type="io.nucleo.inject:IMapping" isFinal="true" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         
+          ]]></description>
+                     <shortDescription><![CDATA[
+         
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="io.nucleo.inject:IMapping">
+                        <![CDATA[     ]]>
+                        <classRef name="IMapping" fullName="io.nucleo.inject:IMapping" packageName="io.nucleo.inject" relativePath="../inject/IMapping.html"/>
+                     </result>
+                     <params>
+                        <param name="parameterName" type="String">
+                           <description><![CDATA[     The parameter name used as mapping key.
+     ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="setup" fullname="io.nucleo.inject:AConfig/protected:setup" accessLevel="protected" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         To be used by sub classes to define the mappings
+         ]]></description>
+                     <shortDescription><![CDATA[
+         To be used by sub classes to define the mappings
+         ]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                  </method>
+               </methods>
+            </asClass>
+            <asClass name="IInjector" type="interface" fullname="io.nucleo.inject:IInjector" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.inject" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <versions/>
+               <author/>
+               <implementers>
+                  <classRef name="Injector" fullName="io.nucleo.inject:Injector" packageName="io.nucleo.inject" relativePath="../inject/Injector.html"/>
+               </implementers>
+               <asAncestors/>
+               <methods>
+                  <method name="destroy" fullname="io.nucleo.inject:IInjector/io.nucleo.inject:IInjector:destroy" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+     Cleanup all resources.
+     ]]></description>
+                     <shortDescription><![CDATA[
+     Cleanup all resources.]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                  </method>
+                  <method name="getObject" fullname="io.nucleo.inject:IInjector/io.nucleo.inject:IInjector:getObject" accessLevel="public" result_type="*" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+          ]]></description>
+                     <shortDescription><![CDATA[
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="*"><![CDATA[     ]]></result>
+                     <params>
+                        <param name="mappingKey" type="Object">
+                           <description><![CDATA[       The mapping key to get the associated object.
+     ]]></description>
+                        </param>
+                     </params>
+                  </method>
+               </methods>
+            </asClass>
+            <asClass name="CreationPolicy" type="class" fullname="io.nucleo.inject:CreationPolicy" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.inject" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <versions/>
+               <author/>
+               <asAncestors/>
+               <constructors>
+                  <constructor name="CreationPolicy" fullname="io.nucleo.inject:CreationPolicy/CreationPolicy" accessLevel="public" result_type="*" inheritDoc="false">
+                     <versions/>
+                     <result type="*"/>
+                  </constructor>
+               </constructors>
+               <methods>
+                  <method name="asSingleton" fullname="io.nucleo.inject:CreationPolicy/asSingleton" accessLevel="public" result_type="io.nucleo.inject:CreationPolicy" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+     If this fluent interface node is used the Injector takes care that only one instance for this mapping is created.
+     ]]></description>
+                     <shortDescription><![CDATA[
+     If this fluent interface node is used the Injector takes care that only one instance for this mapping is created.]]></shortDescription>
+                     <versions/>
+                     <result type="io.nucleo.inject:CreationPolicy">
+                        <![CDATA[     ]]>
+                        <classRef name="CreationPolicy" fullName="io.nucleo.inject:CreationPolicy" packageName="io.nucleo.inject" relativePath="../inject/CreationPolicy.html"/>
+                     </result>
+                  </method>
+               </methods>
+               <fields>
+                  <field name="isSingleton" fullname="io.nucleo.inject:CreationPolicy/io.nucleo.inject:isSingleton/get" accessLevel="public" isConst="false" isStatic="false" type="Boolean" inheritDoc="false" only="read">
+                     <versions/>
+                  </field>
+               </fields>
+            </asClass>
+            <asClass name="IMapping" type="interface" fullname="io.nucleo.inject:IMapping" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.inject" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <versions/>
+               <author/>
+               <implementers>
+                  <classRef name="Mapping" fullName="io.nucleo.inject:Mapping" packageName="io.nucleo.inject" relativePath="../inject/Mapping.html"/>
+               </implementers>
+               <asAncestors/>
+               <methods>
+                  <method name="toClass" fullname="io.nucleo.inject:IMapping/io.nucleo.inject:IMapping:toClass" accessLevel="public" result_type="io.nucleo.inject:CreationPolicy" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+          ]]></description>
+                     <shortDescription><![CDATA[
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="io.nucleo.inject:CreationPolicy">
+                        <![CDATA[     ]]>
+                        <classRef name="CreationPolicy" fullName="io.nucleo.inject:CreationPolicy" packageName="io.nucleo.inject" relativePath="../inject/CreationPolicy.html"/>
+                     </result>
+                     <params>
+                        <param name="classDefinition" type="Class">
+                           <description><![CDATA[  Class definition used for creating the target object.
+     ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="toFactoryMethod" fullname="io.nucleo.inject:IMapping/io.nucleo.inject:IMapping:toFactoryMethod" accessLevel="public" result_type="io.nucleo.inject:CreationPolicy" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+          ]]></description>
+                     <shortDescription><![CDATA[
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="io.nucleo.inject:CreationPolicy">
+                        <![CDATA[     ]]>
+                        <classRef name="CreationPolicy" fullName="io.nucleo.inject:CreationPolicy" packageName="io.nucleo.inject" relativePath="../inject/CreationPolicy.html"/>
+                     </result>
+                     <params>
+                        <param name="factoryMethod" type="Function">
+                           <description><![CDATA[    Factory method used for custom object construction. Similar to the solution with
+                              IProvider but there is no extra class used, only a method in the config for the
+                              construction of the object.
+     ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="toInstance" fullname="io.nucleo.inject:IMapping/io.nucleo.inject:IMapping:toInstance" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+          ]]></description>
+                     <shortDescription><![CDATA[
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                     <params>
+                        <param name="instance" type="Object">
+                           <description><![CDATA[     Target instance of mapping.
+     ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="toOnDemandFactory" fullname="io.nucleo.inject:IMapping/io.nucleo.inject:IMapping:toOnDemandFactory" accessLevel="public" result_type="io.nucleo.inject:CreationPolicy" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+          ]]></description>
+                     <shortDescription><![CDATA[
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="io.nucleo.inject:CreationPolicy">
+                        <![CDATA[     ]]>
+                        <classRef name="CreationPolicy" fullName="io.nucleo.inject:CreationPolicy" packageName="io.nucleo.inject" relativePath="../inject/CreationPolicy.html"/>
+                     </result>
+                     <params>
+                        <param name="onDemandFactory" type="Class">
+                           <description><![CDATA[      On demand factory of type IOnDemandFactory used for on demand object construction.
+                                  You can inject this factory and the actual object creation will be triggered when
+                                  the getObject() method is called.
+     ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="toProvider" fullname="io.nucleo.inject:IMapping/io.nucleo.inject:IMapping:toProvider" accessLevel="public" result_type="io.nucleo.inject:CreationPolicy" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+          ]]></description>
+                     <shortDescription><![CDATA[
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="io.nucleo.inject:CreationPolicy">
+                        <![CDATA[     ]]>
+                        <classRef name="CreationPolicy" fullName="io.nucleo.inject:CreationPolicy" packageName="io.nucleo.inject" relativePath="../inject/CreationPolicy.html"/>
+                     </result>
+                     <params>
+                        <param name="providerClass" type="Class">
+                           <description><![CDATA[    Provider class of type IProvider to be used for custom object construction.
+                              Is needed for 3rd party Classes or for more complex construction setup.
+     ]]></description>
+                        </param>
+                     </params>
+                  </method>
+               </methods>
+            </asClass>
+         </classes>
+         <methods>
+            <method name="createInjector" fullname="io.nucleo.inject:createInjector" accessLevel="public" result_type="io.nucleo.inject:IInjector" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+               <description><![CDATA[
+          ]]></description>
+               <shortDescription><![CDATA[
+          ]]></shortDescription>
+               <versions/>
+               <result type="io.nucleo.inject:IInjector">
+                  <![CDATA[     ]]>
+                  <classRef name="IInjector" fullName="io.nucleo.inject:IInjector" packageName="io.nucleo.inject" relativePath="../inject/IInjector.html"/>
+               </result>
+               <params>
+                  <param name="config" type="io.nucleo.inject:IConfig">
+                     <classRef name="IConfig" fullName="io.nucleo.inject:IConfig" packageName="io.nucleo.inject" relativePath="IConfig.html"/>
+                     <description><![CDATA[      The config to be used.
+     ]]></description>
+                  </param>
+                  <param name="scopePolicy" type="io.nucleo.inject.scope:IScopePolicy" default="null">
+                     <classRef name="IScopePolicy" fullName="io.nucleo.inject.scope:IScopePolicy" packageName="io.nucleo.inject.scope" relativePath="scope/IScopePolicy.html"/>
+                     <description><![CDATA[  Optional scope policy. If not set the DefaultScopePolicy is used.
+     ]]></description>
+                  </param>
+               </params>
+            </method>
+         </methods>
+      </asPackage>
+      <asPackage name="io.nucleo.inject.scope">
+         <classes>
+            <asClass name="DefaultScopePolicy" type="class" fullname="io.nucleo.inject.scope:DefaultScopePolicy" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.inject.scope" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <description><![CDATA[
+     The DefaultScopePolicy use the package name of the config class as the scope ID.
+     ]]></description>
+               <shortDescription><![CDATA[
+     The DefaultScopePolicy use the package name of the config class as the scope ID.]]></shortDescription>
+               <versions/>
+               <author/>
+               <asAncestors/>
+               <asImplements>
+                  <asAncestor>
+                     <classRef name="IScopePolicy" fullName="io.nucleo.inject.scope:IScopePolicy" packageName="io.nucleo.inject.scope" relativePath="IScopePolicy.html"/>
+                     <methods>
+                        <method name="getScope" fullname="io.nucleo.inject.scope:IScopePolicy/io.nucleo.inject.scope:IScopePolicy:getScope" accessLevel="public" result_type="String" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+          ]]></shortDescription>
+                           <params>
+                              <param name="object" type="Object" default="null"/>
+                           </params>
+                        </method>
+                     </methods>
+                  </asAncestor>
+               </asImplements>
+               <methods>
+                  <method name="getScope" fullname="io.nucleo.inject.scope:DefaultScopePolicy/getScope" accessLevel="public" result_type="String" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         
+          ]]></description>
+                     <shortDescription><![CDATA[
+         
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="String"><![CDATA[         The ID of the scope.
+     ]]></result>
+                     <params>
+                        <param name="object" type="Object" default="null">
+                           <description><![CDATA[   An optional object to be passed for deriving the scope ID from it (e.g. package name)
+     ]]></description>
+                        </param>
+                     </params>
+                  </method>
+               </methods>
+            </asClass>
+            <asClass name="GlobalScopePolicy" type="class" fullname="io.nucleo.inject.scope:GlobalScopePolicy" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.inject.scope" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <versions/>
+               <author/>
+               <asAncestors/>
+               <asImplements>
+                  <asAncestor>
+                     <classRef name="IScopePolicy" fullName="io.nucleo.inject.scope:IScopePolicy" packageName="io.nucleo.inject.scope" relativePath="IScopePolicy.html"/>
+                     <methods>
+                        <method name="getScope" fullname="io.nucleo.inject.scope:IScopePolicy/io.nucleo.inject.scope:IScopePolicy:getScope" accessLevel="public" result_type="String" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+          ]]></shortDescription>
+                           <params>
+                              <param name="object" type="Object" default="null"/>
+                           </params>
+                        </method>
+                     </methods>
+                  </asAncestor>
+               </asImplements>
+               <methods>
+                  <method name="getScope" fullname="io.nucleo.inject.scope:GlobalScopePolicy/getScope" accessLevel="public" result_type="String" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         
+          ]]></description>
+                     <shortDescription><![CDATA[
+         
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="String"><![CDATA[         The ID of the scope.
+     ]]></result>
+                     <params>
+                        <param name="object" type="Object" default="null">
+                           <description><![CDATA[   An optional object to be passed for deriving the scope ID from it (e.g. package name)
+     ]]></description>
+                        </param>
+                     </params>
+                  </method>
+               </methods>
+            </asClass>
+            <asClass name="IScopePolicy" type="interface" fullname="io.nucleo.inject.scope:IScopePolicy" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.inject.scope" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <versions/>
+               <author/>
+               <implementers>
+                  <classRef name="DefaultScopePolicy" fullName="io.nucleo.inject.scope:DefaultScopePolicy" packageName="io.nucleo.inject.scope" relativePath="../scope/DefaultScopePolicy.html"/>
+                  <classRef name="GlobalScopePolicy" fullName="io.nucleo.inject.scope:GlobalScopePolicy" packageName="io.nucleo.inject.scope" relativePath="../scope/GlobalScopePolicy.html"/>
+               </implementers>
+               <asAncestors/>
+               <methods>
+                  <method name="getScope" fullname="io.nucleo.inject.scope:IScopePolicy/io.nucleo.inject.scope:IScopePolicy:getScope" accessLevel="public" result_type="String" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+          ]]></description>
+                     <shortDescription><![CDATA[
+          ]]></shortDescription>
+                     <versions/>
+                     <result type="String"><![CDATA[         The ID of the scope.
+     ]]></result>
+                     <params>
+                        <param name="object" type="Object" default="null">
+                           <description><![CDATA[   An optional object to be passed for deriving the scope ID from it (e.g. package name)
+     ]]></description>
+                        </param>
+                     </params>
+                  </method>
+               </methods>
+            </asClass>
+         </classes>
+      </asPackage>
+      <asPackage name="io.nucleo.utils">
+         <classes>
+            <asClass name="ClassUtil" type="class" fullname="io.nucleo.utils:ClassUtil" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.utils" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <versions/>
+               <author/>
+               <asAncestors/>
+               <methods>
+                  <method name="createInstance" fullname="io.nucleo.utils:ClassUtil/createInstance" accessLevel="public" result_type="*" isFinal="false" isOverride="false" isStatic="true" inheritDoc="false">
+                     <description><![CDATA[
+         Helper to create a class with a list of arguments
+                  ]]></description>
+                     <shortDescription><![CDATA[
+         Helper to create a class with a list of arguments
+                  ]]></shortDescription>
+                     <versions/>
+                     <result type="*"><![CDATA[                         The instance of the the class definition.
+         ]]></result>
+                     <params>
+                        <param name="classDefinition" type="Class">
+                           <description><![CDATA[          The class definition used to create the instance.
+         ]]></description>
+                        </param>
+                        <param name="arguments" type="Array" default="null">
+                           <description><![CDATA[                The arguments used when creating an instance from the class definition.
+         ]]></description>
+                        </param>
+                     </params>
+                  </method>
+               </methods>
+            </asClass>
+         </classes>
+      </asPackage>
+      <asPackage name="io.nucleo.scheduler.runnables">
+         <classes>
+            <asClass name="ARunnable" type="class" fullname="io.nucleo.scheduler.runnables:ARunnable" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.scheduler.runnables" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <description><![CDATA[
+     The base class for all runnable objects (tasks, schedulers)
+     ]]></description>
+               <shortDescription><![CDATA[
+     The base class for all runnable objects (tasks, schedulers)
+     ]]></shortDescription>
+               <versions/>
+               <author/>
+               <asDecendants>
+                  <classRef name="AScheduler" fullName="io.nucleo.scheduler:AScheduler" packageName="io.nucleo.scheduler" relativePath="../../scheduler/AScheduler.html"/>
+                  <classRef name="ATask" fullName="io.nucleo.scheduler.tasks:ATask" packageName="io.nucleo.scheduler.tasks" relativePath="../tasks/ATask.html"/>
+               </asDecendants>
+               <asAncestors/>
+               <asImplements>
+                  <asAncestor>
+                     <classRef name="IRunnable" fullName="io.nucleo.scheduler.runnables:IRunnable" packageName="io.nucleo.scheduler.runnables" relativePath="IRunnable.html"/>
+                     <methods>
+                        <method name="run" fullname="io.nucleo.scheduler.runnables:IRunnable/io.nucleo.scheduler.runnables:IRunnable:run" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         Starts the execution.]]></shortDescription>
+                        </method>
+                        <method name="setLogger" fullname="io.nucleo.scheduler.runnables:IRunnable/io.nucleo.scheduler.runnables:IRunnable:setLogger" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+                  ]]></shortDescription>
+                           <params>
+                              <param name="logger" type="mx.logging:ILogger"/>
+                              <param name="logTasksOnly" type="Boolean" default="true"/>
+                           </params>
+                        </method>
+                        <method name="setModel" fullname="io.nucleo.scheduler.runnables:IRunnable/io.nucleo.scheduler.runnables:IRunnable:setModel" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+                  ]]></shortDescription>
+                           <params>
+                              <param name="model" type="Object"/>
+                           </params>
+                        </method>
+                        <method name="setObserver" fullname="io.nucleo.scheduler.runnables:IRunnable/io.nucleo.scheduler.runnables:IRunnable:setObserver" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+                  ]]></shortDescription>
+                           <params>
+                              <param name="scheduler" type="io.nucleo.scheduler.runnables:IRunnableObserver">
+                                 <classRef name="IRunnableObserver" fullName="io.nucleo.scheduler.runnables:IRunnableObserver" packageName="io.nucleo.scheduler.runnables" relativePath="../runnables/IRunnableObserver.html"/>
+                              </param>
+                           </params>
+                        </method>
+                     </methods>
+                  </asAncestor>
+               </asImplements>
+               <constructors>
+                  <constructor name="ARunnable" fullname="io.nucleo.scheduler.runnables:ARunnable/ARunnable" accessLevel="public" result_type="*" inheritDoc="false">
+                     <versions/>
+                     <result type="*"/>
+                  </constructor>
+               </constructors>
+               <methods>
+                  <method name="complete" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:complete" accessLevel="protected" result_type="void" isFinal="true" isOverride="false" isStatic="false" inheritDoc="false">
+                     <versions/>
+                     <result type="void"/>
+                  </method>
+                  <method name="destroy" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:destroy" accessLevel="protected" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         To be used by sub classes for cleanup.
+         ]]></description>
+                     <shortDescription><![CDATA[
+         To be used by sub classes for cleanup.]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                  </method>
+                  <method name="failed" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:failed" accessLevel="protected" result_type="void" isFinal="true" isOverride="false" isStatic="false" inheritDoc="false">
+                     <versions/>
+                     <result type="void"/>
+                     <params>
+                        <param name="fault" type="Object"/>
+                     </params>
+                  </method>
+                  <method name="run" fullname="io.nucleo.scheduler.runnables:ARunnable/run" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         
+         Starts the execution.
+         ]]></description>
+                     <shortDescription><![CDATA[
+         
+         Starts the execution.]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                  </method>
+                  <method name="setLogger" fullname="io.nucleo.scheduler.runnables:ARunnable/setLogger" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         
+                  ]]></description>
+                     <shortDescription><![CDATA[
+         
+                  ]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                     <params>
+                        <param name="logger" type="mx.logging:ILogger">
+                           <description><![CDATA[           The logger used for debug and error messages.
+         ]]></description>
+                        </param>
+                        <param name="logTasksOnly" type="Boolean" default="true">
+                           <description><![CDATA[     If true (default) only the tasks (implementing ITask) are used for logging, not the
+                                  schedulers.
+         ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="setModel" fullname="io.nucleo.scheduler.runnables:ARunnable/setModel" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         
+                  ]]></description>
+                     <shortDescription><![CDATA[
+         
+                  ]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                     <params>
+                        <param name="model" type="Object">
+                           <description><![CDATA[            The model used as shared data storage between the tasks.
+         ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="setObserver" fullname="io.nucleo.scheduler.runnables:ARunnable/setObserver" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         
+                  ]]></description>
+                     <shortDescription><![CDATA[
+         
+                  ]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                     <params>
+                        <param name="observer" type="io.nucleo.scheduler.runnables:IRunnableObserver">
+                           <classRef name="IRunnableObserver" fullName="io.nucleo.scheduler.runnables:IRunnableObserver" packageName="io.nucleo.scheduler.runnables" relativePath="IRunnableObserver.html"/>
+                           <description><![CDATA[         The IRunnableObserver instance getting notified on complete and fault.
+         ]]></description>
+                        </param>
+                     </params>
+                  </method>
+               </methods>
+               <fields>
+                  <field name="isFailed" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:isFailed" accessLevel="protected" type="Boolean" isConst="false" isStatic="false">
+                     <versions/>
+                  </field>
+                  <field name="logTasksOnly" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:logTasksOnly" accessLevel="protected" type="Boolean" isConst="false" isStatic="false">
+                     <versions/>
+                  </field>
+                  <field name="logger" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:logger" accessLevel="protected" type="mx.logging:ILogger" isConst="false" isStatic="false">
+                     <versions/>
+                  </field>
+                  <field name="model" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:model" accessLevel="protected" type="Object" isConst="false" isStatic="false">
+                     <versions/>
+                  </field>
+                  <field name="observer" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:observer" accessLevel="protected" type="io.nucleo.scheduler.runnables:IRunnableObserver" isConst="false" isStatic="false">
+                     <classRef name="IRunnableObserver" fullName="io.nucleo.scheduler.runnables:IRunnableObserver" packageName="io.nucleo.scheduler.runnables" relativePath="../runnables/IRunnableObserver.html"/>
+                     <versions/>
+                  </field>
+                  <field name="startTime" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:startTime" accessLevel="protected" type="int" isConst="false" isStatic="false">
+                     <versions/>
+                  </field>
+               </fields>
+            </asClass>
+            <asClass name="RunnableFault" type="class" fullname="io.nucleo.scheduler.runnables:RunnableFault" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.scheduler.runnables" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <versions/>
+               <author/>
+               <asAncestors/>
+               <constructors>
+                  <constructor name="RunnableFault" fullname="io.nucleo.scheduler.runnables:RunnableFault/RunnableFault" accessLevel="public" result_type="*" inheritDoc="false">
+                     <description><![CDATA[
+                  ]]></description>
+                     <shortDescription><![CDATA[
+                  ]]></shortDescription>
+                     <versions/>
+                     <result type="*"/>
+                     <params>
+                        <param name="message" type="String">
+                           <description><![CDATA[        ]]></description>
+                        </param>
+                        <param name="data" type="Object" default="null">
+                           <description><![CDATA[        ]]></description>
+                        </param>
+                     </params>
+                  </constructor>
+               </constructors>
+               <methods>
+                  <method name="toString" fullname="io.nucleo.scheduler.runnables:RunnableFault/toString" accessLevel="public" result_type="String" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <versions/>
+                     <result type="String"/>
+                  </method>
+               </methods>
+               <fields>
+                  <field name="data" fullname="io.nucleo.scheduler.runnables:RunnableFault/data/get" accessLevel="public" isConst="false" isStatic="false" type="Object" inheritDoc="false" only="read">
+                     <versions/>
+                  </field>
+                  <field name="message" fullname="io.nucleo.scheduler.runnables:RunnableFault/message/get" accessLevel="public" isConst="false" isStatic="false" type="String" inheritDoc="false" only="read">
+                     <versions/>
+                  </field>
+               </fields>
+            </asClass>
+            <asClass name="IRunnable" type="interface" fullname="io.nucleo.scheduler.runnables:IRunnable" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.scheduler.runnables" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <description><![CDATA[
+     The base interface for all runnable objects (tasks, schedulers)
+     ]]></description>
+               <shortDescription><![CDATA[
+     The base interface for all runnable objects (tasks, schedulers)
+     ]]></shortDescription>
+               <versions/>
+               <author/>
+               <implementers>
+                  <classRef name="ARunnable" fullName="io.nucleo.scheduler.runnables:ARunnable" packageName="io.nucleo.scheduler.runnables" relativePath="../runnables/ARunnable.html"/>
+                  <classRef name="AScheduler" fullName="io.nucleo.scheduler:AScheduler" packageName="io.nucleo.scheduler" relativePath="../../scheduler/AScheduler.html"/>
+               </implementers>
+               <asDecendants>
+                  <classRef name="ITask" fullName="io.nucleo.scheduler.tasks:ITask" packageName="io.nucleo.scheduler.tasks" relativePath="../tasks/ITask.html"/>
+                  <classRef name="IScheduler" fullName="io.nucleo.scheduler:IScheduler" packageName="io.nucleo.scheduler" relativePath="../../scheduler/IScheduler.html"/>
+               </asDecendants>
+               <asAncestors/>
+               <methods>
+                  <method name="run" fullname="io.nucleo.scheduler.runnables:IRunnable/io.nucleo.scheduler.runnables:IRunnable:run" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         Starts the execution.
+         ]]></description>
+                     <shortDescription><![CDATA[
+         Starts the execution.]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                  </method>
+                  <method name="setLogger" fullname="io.nucleo.scheduler.runnables:IRunnable/io.nucleo.scheduler.runnables:IRunnable:setLogger" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+                  ]]></description>
+                     <shortDescription><![CDATA[
+                  ]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                     <params>
+                        <param name="logger" type="mx.logging:ILogger">
+                           <description><![CDATA[           The logger used for debug and error messages.
+         ]]></description>
+                        </param>
+                        <param name="logTasksOnly" type="Boolean" default="true">
+                           <description><![CDATA[     If true (default) only the tasks (implementing ITask) are used for logging, not the
+                                  schedulers.
+         ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="setModel" fullname="io.nucleo.scheduler.runnables:IRunnable/io.nucleo.scheduler.runnables:IRunnable:setModel" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+                  ]]></description>
+                     <shortDescription><![CDATA[
+                  ]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                     <params>
+                        <param name="model" type="Object">
+                           <description><![CDATA[            The model used as shared data storage between the tasks.
+         ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="setObserver" fullname="io.nucleo.scheduler.runnables:IRunnable/io.nucleo.scheduler.runnables:IRunnable:setObserver" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+                  ]]></description>
+                     <shortDescription><![CDATA[
+                  ]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                     <params>
+                        <param name="scheduler" type="io.nucleo.scheduler.runnables:IRunnableObserver">
+                           <classRef name="IRunnableObserver" fullName="io.nucleo.scheduler.runnables:IRunnableObserver" packageName="io.nucleo.scheduler.runnables" relativePath="IRunnableObserver.html"/>
+                           <description><![CDATA[         The IRunnableObserver instance getting notified on complete and fault.
+         ]]></description>
+                        </param>
+                     </params>
+                  </method>
+               </methods>
+            </asClass>
+            <asClass name="IRunnableObserver" type="interface" fullname="io.nucleo.scheduler.runnables:IRunnableObserver" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.scheduler.runnables" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <versions/>
+               <author/>
+               <implementers>
+                  <classRef name="AScheduler" fullName="io.nucleo.scheduler:AScheduler" packageName="io.nucleo.scheduler" relativePath="../../scheduler/AScheduler.html"/>
+               </implementers>
+               <asAncestors/>
+               <methods>
+                  <method name="onRunnableComplete" fullname="io.nucleo.scheduler.runnables:IRunnableObserver/io.nucleo.scheduler.runnables:IRunnableObserver:onRunnableComplete" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         Called when a IRunnable object is completed.
+         ]]></description>
+                     <shortDescription><![CDATA[
+         Called when a IRunnable object is completed.]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                  </method>
+                  <method name="onRunnableFault" fullname="io.nucleo.scheduler.runnables:IRunnableObserver/io.nucleo.scheduler.runnables:IRunnableObserver:onRunnableFault" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         Called when a IRunnable object has failed.
+         ]]></description>
+                     <shortDescription><![CDATA[
+         Called when a IRunnable object has failed.]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                     <params>
+                        <param name="runnableFault" type="io.nucleo.scheduler.runnables:RunnableFault">
+                           <classRef name="RunnableFault" fullName="io.nucleo.scheduler.runnables:RunnableFault" packageName="io.nucleo.scheduler.runnables" relativePath="RunnableFault.html"/>
+                           <description><![CDATA[        ]]></description>
+                        </param>
+                     </params>
+                  </method>
+               </methods>
+            </asClass>
+         </classes>
+      </asPackage>
+      <asPackage name="io.nucleo.scheduler.tasks">
+         <classes>
+            <asClass name="ITask" type="interface" fullname="io.nucleo.scheduler.tasks:ITask" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.scheduler.tasks" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <description><![CDATA[
+     The base interface for all tasks.
+     ]]></description>
+               <shortDescription><![CDATA[
+     The base interface for all tasks.]]></shortDescription>
+               <versions/>
+               <author/>
+               <implementers>
+                  <classRef name="ATask" fullName="io.nucleo.scheduler.tasks:ATask" packageName="io.nucleo.scheduler.tasks" relativePath="../tasks/ATask.html"/>
+               </implementers>
+               <asAncestors>
+                  <asAncestor>
+                     <classRef name="IRunnable" fullName="io.nucleo.scheduler.runnables:IRunnable" packageName="io.nucleo.scheduler.runnables" relativePath="../runnables/IRunnable.html"/>
+                     <methods>
+                        <method name="run" fullname="io.nucleo.scheduler.runnables:IRunnable/io.nucleo.scheduler.runnables:IRunnable:run" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         Starts the execution.]]></shortDescription>
+                        </method>
+                        <method name="setLogger" fullname="io.nucleo.scheduler.runnables:IRunnable/io.nucleo.scheduler.runnables:IRunnable:setLogger" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+                  ]]></shortDescription>
+                           <params>
+                              <param name="logger" type="mx.logging:ILogger"/>
+                              <param name="logTasksOnly" type="Boolean" default="true"/>
+                           </params>
+                        </method>
+                        <method name="setModel" fullname="io.nucleo.scheduler.runnables:IRunnable/io.nucleo.scheduler.runnables:IRunnable:setModel" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+                  ]]></shortDescription>
+                           <params>
+                              <param name="model" type="Object"/>
+                           </params>
+                        </method>
+                        <method name="setObserver" fullname="io.nucleo.scheduler.runnables:IRunnable/io.nucleo.scheduler.runnables:IRunnable:setObserver" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+                  ]]></shortDescription>
+                           <params>
+                              <param name="scheduler" type="io.nucleo.scheduler.runnables:IRunnableObserver">
+                                 <classRef name="IRunnableObserver" fullName="io.nucleo.scheduler.runnables:IRunnableObserver" packageName="io.nucleo.scheduler.runnables" relativePath="../runnables/IRunnableObserver.html"/>
+                              </param>
+                           </params>
+                        </method>
+                     </methods>
+                  </asAncestor>
+               </asAncestors>
+            </asClass>
+            <asClass name="ATask" type="class" fullname="io.nucleo.scheduler.tasks:ATask" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.scheduler.tasks" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <description><![CDATA[
+     The base class for all tasks.
+     ]]></description>
+               <shortDescription><![CDATA[
+     The base class for all tasks.]]></shortDescription>
+               <versions/>
+               <author/>
+               <asDecendants>
+                  <classRef name="ADependencyManagedTask" fullName="io.nucleo.scheduler.tasks:ADependencyManagedTask" packageName="io.nucleo.scheduler.tasks" relativePath="../tasks/ADependencyManagedTask.html"/>
+               </asDecendants>
+               <asAncestors>
+                  <asAncestor>
+                     <classRef name="ARunnable" fullName="io.nucleo.scheduler.runnables:ARunnable" packageName="io.nucleo.scheduler.runnables" relativePath="../runnables/ARunnable.html"/>
+                     <fields>
+                        <field name="isFailed" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:isFailed" accessLevel="protected" type="Boolean" isConst="false" isStatic="false"/>
+                        <field name="logTasksOnly" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:logTasksOnly" accessLevel="protected" type="Boolean" isConst="false" isStatic="false"/>
+                        <field name="logger" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:logger" accessLevel="protected" type="mx.logging:ILogger" isConst="false" isStatic="false"/>
+                        <field name="model" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:model" accessLevel="protected" type="Object" isConst="false" isStatic="false"/>
+                        <field name="observer" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:observer" accessLevel="protected" type="io.nucleo.scheduler.runnables:IRunnableObserver" isConst="false" isStatic="false">
+                           <classRef name="IRunnableObserver" fullName="io.nucleo.scheduler.runnables:IRunnableObserver" packageName="io.nucleo.scheduler.runnables" relativePath="../runnables/IRunnableObserver.html"/>
+                        </field>
+                        <field name="startTime" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:startTime" accessLevel="protected" type="int" isConst="false" isStatic="false"/>
+                     </fields>
+                     <methods>
+                        <method name="complete" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:complete" accessLevel="protected" result_type="void" isFinal="true" isOverride="false" isStatic="false" inheritDoc="false"/>
+                        <method name="destroy" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:destroy" accessLevel="protected" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         To be used by sub classes for cleanup.]]></shortDescription>
+                        </method>
+                        <method name="failed" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:failed" accessLevel="protected" result_type="void" isFinal="true" isOverride="false" isStatic="false" inheritDoc="false">
+                           <params>
+                              <param name="fault" type="Object"/>
+                           </params>
+                        </method>
+                        <method name="run" fullname="io.nucleo.scheduler.runnables:ARunnable/run" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         
+         Starts the execution.]]></shortDescription>
+                        </method>
+                        <method name="setLogger" fullname="io.nucleo.scheduler.runnables:ARunnable/setLogger" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         
+                  ]]></shortDescription>
+                           <params>
+                              <param name="logger" type="mx.logging:ILogger"/>
+                              <param name="logTasksOnly" type="Boolean" default="true"/>
+                           </params>
+                        </method>
+                        <method name="setModel" fullname="io.nucleo.scheduler.runnables:ARunnable/setModel" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         
+                  ]]></shortDescription>
+                           <params>
+                              <param name="model" type="Object"/>
+                           </params>
+                        </method>
+                        <method name="setObserver" fullname="io.nucleo.scheduler.runnables:ARunnable/setObserver" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         
+                  ]]></shortDescription>
+                           <params>
+                              <param name="observer" type="io.nucleo.scheduler.runnables:IRunnableObserver">
+                                 <classRef name="IRunnableObserver" fullName="io.nucleo.scheduler.runnables:IRunnableObserver" packageName="io.nucleo.scheduler.runnables" relativePath="../runnables/IRunnableObserver.html"/>
+                              </param>
+                           </params>
+                        </method>
+                     </methods>
+                  </asAncestor>
+               </asAncestors>
+               <asImplements>
+                  <asAncestor>
+                     <classRef name="ITask" fullName="io.nucleo.scheduler.tasks:ITask" packageName="io.nucleo.scheduler.tasks" relativePath="ITask.html"/>
+                  </asAncestor>
+               </asImplements>
+               <constructors>
+                  <constructor name="ATask" fullname="io.nucleo.scheduler.tasks:ATask/ATask" accessLevel="public" result_type="*" inheritDoc="false">
+                     <versions/>
+                     <result type="*"/>
+                  </constructor>
+               </constructors>
+            </asClass>
+            <asClass name="ADependencyManagedTask" type="class" fullname="io.nucleo.scheduler.tasks:ADependencyManagedTask" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.scheduler.tasks" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <description><![CDATA[
+     The base class for all tasks using a IPropertyProviderModel instance as a shared model.
+     ]]></description>
+               <shortDescription><![CDATA[
+     The base class for all tasks using a IPropertyProviderModel instance as a shared model.]]></shortDescription>
+               <versions/>
+               <author/>
+               <asAncestors>
+                  <asAncestor>
+                     <classRef name="ATask" fullName="io.nucleo.scheduler.tasks:ATask" packageName="io.nucleo.scheduler.tasks" relativePath="ATask.html"/>
+                  </asAncestor>
+                  <asAncestor>
+                     <classRef name="ARunnable" fullName="io.nucleo.scheduler.runnables:ARunnable" packageName="io.nucleo.scheduler.runnables" relativePath="../runnables/ARunnable.html"/>
+                     <fields>
+                        <field name="isFailed" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:isFailed" accessLevel="protected" type="Boolean" isConst="false" isStatic="false"/>
+                        <field name="logTasksOnly" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:logTasksOnly" accessLevel="protected" type="Boolean" isConst="false" isStatic="false"/>
+                        <field name="logger" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:logger" accessLevel="protected" type="mx.logging:ILogger" isConst="false" isStatic="false"/>
+                        <field name="model" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:model" accessLevel="protected" type="Object" isConst="false" isStatic="false"/>
+                        <field name="observer" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:observer" accessLevel="protected" type="io.nucleo.scheduler.runnables:IRunnableObserver" isConst="false" isStatic="false">
+                           <classRef name="IRunnableObserver" fullName="io.nucleo.scheduler.runnables:IRunnableObserver" packageName="io.nucleo.scheduler.runnables" relativePath="../runnables/IRunnableObserver.html"/>
+                        </field>
+                        <field name="startTime" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:startTime" accessLevel="protected" type="int" isConst="false" isStatic="false"/>
+                     </fields>
+                     <methods>
+                        <method name="complete" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:complete" accessLevel="protected" result_type="void" isFinal="true" isOverride="false" isStatic="false" inheritDoc="false"/>
+                        <method name="destroy" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:destroy" accessLevel="protected" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         To be used by sub classes for cleanup.]]></shortDescription>
+                        </method>
+                        <method name="failed" fullname="io.nucleo.scheduler.runnables:ARunnable/protected:failed" accessLevel="protected" result_type="void" isFinal="true" isOverride="false" isStatic="false" inheritDoc="false">
+                           <params>
+                              <param name="fault" type="Object"/>
+                           </params>
+                        </method>
+                        <method name="run" fullname="io.nucleo.scheduler.runnables:ARunnable/run" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         
+         Starts the execution.]]></shortDescription>
+                        </method>
+                        <method name="setLogger" fullname="io.nucleo.scheduler.runnables:ARunnable/setLogger" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         
+                  ]]></shortDescription>
+                           <params>
+                              <param name="logger" type="mx.logging:ILogger"/>
+                              <param name="logTasksOnly" type="Boolean" default="true"/>
+                           </params>
+                        </method>
+                        <method name="setObserver" fullname="io.nucleo.scheduler.runnables:ARunnable/setObserver" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         
+                  ]]></shortDescription>
+                           <params>
+                              <param name="observer" type="io.nucleo.scheduler.runnables:IRunnableObserver">
+                                 <classRef name="IRunnableObserver" fullName="io.nucleo.scheduler.runnables:IRunnableObserver" packageName="io.nucleo.scheduler.runnables" relativePath="../runnables/IRunnableObserver.html"/>
+                              </param>
+                           </params>
+                        </method>
+                     </methods>
+                  </asAncestor>
+               </asAncestors>
+               <constructors>
+                  <constructor name="ADependencyManagedTask" fullname="io.nucleo.scheduler.tasks:ADependencyManagedTask/ADependencyManagedTask" accessLevel="public" result_type="*" inheritDoc="false">
+                     <versions/>
+                     <result type="*"/>
+                  </constructor>
+               </constructors>
+               <methods>
+                  <method name="areAllDependenciesAvailable" fullname="io.nucleo.scheduler.tasks:ADependencyManagedTask/scheduler_internal:areAllDependenciesAvailable" accessLevel="scheduler_internal" result_type="Boolean" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <versions/>
+                     <result type="Boolean"/>
+                  </method>
+                  <method name="initReadDependencies" fullname="io.nucleo.scheduler.tasks:ADependencyManagedTask/protected:initReadDependencies" accessLevel="protected" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         To be overwritten in subclasses
+         Used to read the needed data objects for the task.
+         Typically stored as instance variable in the task.
+         ]]></description>
+                     <shortDescription><![CDATA[
+         To be overwritten in subclasses
+         Used to read the needed data objects for the task.]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                  </method>
+                  <method name="read" fullname="io.nucleo.scheduler.tasks:ADependencyManagedTask/protected:read" accessLevel="protected" result_type="*" isFinal="true" isOverride="false" isStatic="false" inheritDoc="false">
+                     <versions/>
+                     <result type="*"/>
+                     <params>
+                        <param name="key" type="Object"/>
+                     </params>
+                  </method>
+                  <method name="setModel" fullname="io.nucleo.scheduler.tasks:ADependencyManagedTask/setModel" accessLevel="public" result_type="void" isFinal="false" isOverride="true" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         
+         
+                  ]]></description>
+                     <shortDescription><![CDATA[
+         
+         
+                  ]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                     <params>
+                        <param name="model" type="Object">
+                           <description><![CDATA[            The model used as shared data storage between the tasks.
+         ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="setup" fullname="io.nucleo.scheduler.tasks:ADependencyManagedTask/scheduler_internal:setup" accessLevel="scheduler_internal" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <versions/>
+                     <result type="void"/>
+                  </method>
+                  <method name="write" fullname="io.nucleo.scheduler.tasks:ADependencyManagedTask/protected:write" accessLevel="protected" result_type="void" isFinal="true" isOverride="false" isStatic="false" inheritDoc="false">
+                     <versions/>
+                     <result type="void"/>
+                     <params>
+                        <param name="key" type="Object"/>
+                        <param name="value" type="Object"/>
+                     </params>
+                  </method>
+               </methods>
+            </asClass>
+         </classes>
+      </asPackage>
+      <asPackage name="io.nucleo.scheduler.model">
+         <classes>
+            <asClass name="PropertyProviderModel" type="class" fullname="io.nucleo.scheduler.model:PropertyProviderModel" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.scheduler.model" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <description><![CDATA[
+     The data model to store objects needed to be shared between tasks and the client.
+     It is using a style inspired by dependency injection frameworks like Google Guice.
+     You can use an Interface, Class or a string as key for reading or writing an object.
+     ]]></description>
+               <shortDescription><![CDATA[
+     The data model to store objects needed to be shared between tasks and the client.]]></shortDescription>
+               <versions/>
+               <author/>
+               <asAncestors/>
+               <asImplements>
+                  <asAncestor>
+                     <classRef name="IPropertyProviderModel" fullName="io.nucleo.scheduler.model:IPropertyProviderModel" packageName="io.nucleo.scheduler.model" relativePath="IPropertyProviderModel.html"/>
+                     <methods>
+                        <method name="read" fullname="io.nucleo.scheduler.model:IPropertyProviderModel/io.nucleo.scheduler.model:IPropertyProviderModel:read" accessLevel="public" result_type="*" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+         This method is used to define the read dependencies (the model data objects needed for a certain
+         task to be able to run)
+                  ]]></shortDescription>
+                           <params>
+                              <param name="key" type="Object"/>
+                           </params>
+                        </method>
+                        <method name="write" fullname="io.nucleo.scheduler.model:IPropertyProviderModel/io.nucleo.scheduler.model:IPropertyProviderModel:write" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                           <shortDescription><![CDATA[
+                  ]]></shortDescription>
+                           <params>
+                              <param name="key" type="Object"/>
+                              <param name="value" type="Object"/>
+                           </params>
+                        </method>
+                     </methods>
+                  </asAncestor>
+               </asImplements>
+               <constructors>
+                  <constructor name="PropertyProviderModel" fullname="io.nucleo.scheduler.model:PropertyProviderModel/PropertyProviderModel" accessLevel="public" result_type="*" inheritDoc="false">
+                     <versions/>
+                     <result type="*"/>
+                  </constructor>
+               </constructors>
+               <methods>
+                  <method name="handleMissingPropertyRegistrationWarning" fullname="io.nucleo.scheduler.model:PropertyProviderModel/protected:handleMissingPropertyRegistrationWarning" accessLevel="protected" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         The handling of a missing key registration can be overwritten if another handling is preferred.
+         ]]></description>
+                     <shortDescription><![CDATA[
+         The handling of a missing key registration can be overwritten if another handling is preferred.]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                     <params>
+                        <param name="key" type="Object">
+                           <description><![CDATA[        ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="read" fullname="io.nucleo.scheduler.model:PropertyProviderModel/read" accessLevel="public" result_type="*" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         
+         This method is used to define the read dependencies (the model data objects needed for a certain
+         task to be able to run)
+                  ]]></description>
+                     <shortDescription><![CDATA[
+         
+         This method is used to define the read dependencies (the model data objects needed for a certain
+         task to be able to run)
+                  ]]></shortDescription>
+                     <versions/>
+                     <result type="*"><![CDATA[         The value object stored with the associated key.
+         ]]></result>
+                     <params>
+                        <param name="key" type="Object">
+                           <description><![CDATA[      The key which was used for writing an object to the data dictionary.
+         ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="registerKey" fullname="io.nucleo.scheduler.model:PropertyProviderModel/protected:registerKey" accessLevel="protected" result_type="void" isFinal="true" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         ]]></description>
+                     <shortDescription><![CDATA[
+         ]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                     <params>
+                        <param name="key" type="Object">
+                           <description><![CDATA[        ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="registerKeys" fullname="io.nucleo.scheduler.model:PropertyProviderModel/protected:registerKeys" accessLevel="protected" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         To be overwritten in subclass.
+         Register all property keys which are not available at startup.
+         These property keys will be used for writing into the data dictionary from any task during the
+         execution process.
+         This is next to the constructor the central place where all available properties are visible.
+         ]]></description>
+                     <shortDescription><![CDATA[
+         To be overwritten in subclass.]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                  </method>
+                  <method name="registerObject" fullname="io.nucleo.scheduler.model:PropertyProviderModel/protected:registerObject" accessLevel="protected" result_type="void" isFinal="true" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         ]]></description>
+                     <shortDescription><![CDATA[
+         ]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                     <params>
+                        <param name="key" type="Object">
+                           <description><![CDATA[        ]]></description>
+                        </param>
+                        <param name="value" type="Object">
+                           <description><![CDATA[        ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="write" fullname="io.nucleo.scheduler.model:PropertyProviderModel/write" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         
+                  ]]></description>
+                     <shortDescription><![CDATA[
+         
+                  ]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                     <params>
+                        <param name="key" type="Object">
+                           <description><![CDATA[      The key to be used for the given value. Can be of any type. Typically an interface, class
+                          or string.
+         ]]></description>
+                        </param>
+                        <param name="value" type="Object">
+                           <description><![CDATA[    The value to be stored.
+         ]]></description>
+                        </param>
+                     </params>
+                  </method>
+               </methods>
+            </asClass>
+            <asClass name="IPropertyProviderModel" type="interface" fullname="io.nucleo.scheduler.model:IPropertyProviderModel" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.scheduler.model" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <description><![CDATA[
+     The base interface for all models using the dependency management with the read/write methods.
+     ]]></description>
+               <shortDescription><![CDATA[
+     The base interface for all models using the dependency management with the read/write methods.]]></shortDescription>
+               <versions/>
+               <author/>
+               <implementers>
+                  <classRef name="PropertyProviderModel" fullName="io.nucleo.scheduler.model:PropertyProviderModel" packageName="io.nucleo.scheduler.model" relativePath="../model/PropertyProviderModel.html"/>
+               </implementers>
+               <asAncestors/>
+               <methods>
+                  <method name="read" fullname="io.nucleo.scheduler.model:IPropertyProviderModel/io.nucleo.scheduler.model:IPropertyProviderModel:read" accessLevel="public" result_type="*" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+         This method is used to define the read dependencies (the model data objects needed for a certain
+         task to be able to run)
+                  ]]></description>
+                     <shortDescription><![CDATA[
+         This method is used to define the read dependencies (the model data objects needed for a certain
+         task to be able to run)
+                  ]]></shortDescription>
+                     <versions/>
+                     <result type="*"><![CDATA[         The value object stored with the associated key.
+         ]]></result>
+                     <params>
+                        <param name="key" type="Object">
+                           <description><![CDATA[      The key which was used for writing an object to the data dictionary.
+         ]]></description>
+                        </param>
+                     </params>
+                  </method>
+                  <method name="write" fullname="io.nucleo.scheduler.model:IPropertyProviderModel/io.nucleo.scheduler.model:IPropertyProviderModel:write" accessLevel="public" result_type="void" isFinal="false" isOverride="false" isStatic="false" inheritDoc="false">
+                     <description><![CDATA[
+                  ]]></description>
+                     <shortDescription><![CDATA[
+                  ]]></shortDescription>
+                     <versions/>
+                     <result type="void"/>
+                     <params>
+                        <param name="key" type="Object">
+                           <description><![CDATA[      The key to be used for the given value. Can be of any type. Typically an interface, class
+                          or string.
+         ]]></description>
+                        </param>
+                        <param name="value" type="Object">
+                           <description><![CDATA[    The value to be stored.
+         ]]></description>
+                        </param>
+                     </params>
+                  </method>
+               </methods>
+            </asClass>
+         </classes>
+      </asPackage>
+      <asPackage name="io.nucleo.errors">
+         <classes>
+            <asClass name="AbstractMethodInvocationError" type="class" fullname="io.nucleo.errors:AbstractMethodInvocationError" accessLevel="public" isFinal="false" isDynamic="false" packageName="io.nucleo.errors" path="" relativePath="../" href="" taghref="" inheritDoc="false">
+               <description><![CDATA[
+     Used to protect abstract methods, as abstract is not supported in AS3 we throw this error at runtime
+     to get a better protection against incorrect usage.
+     ]]></description>
+               <shortDescription><![CDATA[
+     Used to protect abstract methods, as abstract is not supported in AS3 we throw this error at runtime
+     to get a better protection against incorrect usage.]]></shortDescription>
+               <versions/>
+               <author/>
+               <asAncestors>
+                  <asAncestor>
+                     <classRef name="Error" fullName="Error" relativePath="none"/>
+                  </asAncestor>
+               </asAncestors>
+               <constructors>
+                  <constructor name="AbstractMethodInvocationError" fullname="io.nucleo.errors:AbstractMethodInvocationError/AbstractMethodInvocationError" accessLevel="public" result_type="*" inheritDoc="false">
+                     <description><![CDATA[
+                  ]]></description>
+                     <shortDescription><![CDATA[
+                  ]]></shortDescription>
+                     <versions/>
+                     <result type="*"/>
+                     <params>
+                        <param name="classInstance" type="Object">
+                           <description><![CDATA[     The class instance where the error is thrown
+         ]]></description>
+                        </param>
+                        <param name="methodName" type="String">
+                           <description><![CDATA[   The name of the abstract method
+         ]]></description>
+                        </param>
+                     </params>
+                  </constructor>
+               </constructors>
+            </asClass>
+         </classes>
+      </asPackage>
+   </packages>
+</asdoc>

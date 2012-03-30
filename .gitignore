@@ -10,6 +10,7 @@
 .flexLibProperties
 .project
 .settings
+.externalToolBuilders/*
 
 # IntelliJ
 *.iml
@@ -19,6 +20,5 @@ bin/*
 bin-debug/*
 bin-release/*
 bin-test/*
-docs/*
 report/*
-.externalToolBuilders/*
+
